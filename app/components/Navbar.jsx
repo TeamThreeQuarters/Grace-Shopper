@@ -11,7 +11,7 @@ const Navbar = props => {
     <div className="navbar navbar-default">
       <div className="container-fluid">
 
-        {/*Brand and toggle get grouped for better mobile display*/}
+        {/* Brand and toggle get grouped for better mobile display */}
         <div className="navbar-header">
           <button
             type="button"
@@ -27,11 +27,10 @@ const Navbar = props => {
           <Link to="/" className="navbar-brand">Grace Shopper</Link>
         </div>
 
-        {/*Collect the nav links, forms, and other content for toggling*/}
+        {/* Collect the nav links, forms, and other content for toggling */}
         <div className="collapse navbar-collapse" id="navbar-collapse-target">
 
           <ul className="nav navbar-nav">
-            {/*<li className="active"><Link to="#">Link <span className="sr-only">(current)</span></Link></li>*/}
             <li><Link to="#">Browse History</Link></li>
             <li className="dropdown">
               <Link
@@ -61,7 +60,7 @@ const Navbar = props => {
             </li>
           </ul>
 
-          {/*Account Related Links*/}
+          {/* Account Related Links */}
           <ul className="nav navbar-nav navbar-right">
             <li className="dropdown">
               <Link
@@ -85,7 +84,7 @@ const Navbar = props => {
             <li><Link to="#">Cart</Link></li>
           </ul>
 
-          {/*Search Bar*/}
+          {/* Search Bar */}
           <form className="navbar-form navbar-left" role="search" onSubmit={getProducts}>
             <div className="form-group">
               <div className="input-group">
