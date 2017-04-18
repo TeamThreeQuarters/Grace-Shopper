@@ -5,10 +5,10 @@ import axios from 'axios';
 
 export default ({ login }) => {
 
-  function createUser(evt) {
+  function createUserAndLogin(evt) {
     evt.preventDefault();
     let userData = {
-      email: evt.target.name.value,
+      email: evt.target.email.value,
       password: evt.target.password.value,
     };
     axios.post('/api/users', userData)
@@ -20,9 +20,9 @@ export default ({ login }) => {
   }
 
   return (
-    <form onSubmit={createUser}>
-      <label>Name:</label>
-      <input name="name" />
+    <form onSubmit={createUserAndLogin}>
+      <label>Email:</label>
+      <input name="email" />
       <label>Password:</label>
       <input name="password" type="password" />
       <input type="submit" value="Signup" />
