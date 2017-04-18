@@ -9,6 +9,7 @@ module.exports = db => db.define('products', {
   },
   images: {
     type: ARRAY(TEXT),
+    defaultValue: []
   },
   description: TEXT,
   category: {

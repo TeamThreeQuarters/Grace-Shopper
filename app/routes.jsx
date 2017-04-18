@@ -11,23 +11,25 @@ import WhoAmI from './components/WhoAmI';
 import NotFound from './components/NotFound';
 
 import ProductCatalog from './product_catalog/containers';
-import Signup from './signup/containers'
+// import Signup from './signup/containers'
 
 /* Dispatchers */
-import { loadAllProducts } from './product_catalog/action-creators';
+
+import { getProducts } from './product_catalog/action-creators'
 
 /* ROUTES COMPONENT */
 const RoutesComponent = ({ loadProductOnEnter }) => (
   <Router history={browserHistory}>
-    {/*<Route path="/" component={ExampleApp}>
+
+    <Route path="/" component={ExampleApp} onEnter={loadProductOnEnter}>
       <IndexRedirect to="/jokes" />
       <Route path="/jokes" component={Jokes} />
       <Route path="/products" component={ProductCatalog} onEnter={loadProductOnEnter} />
-    </Route>*/}
-    <Route path="/">
+    </Route>
+    {/*<Route path="/">
       <Route path="/Signup" component={Signup} />
       <Route path="/products" component={ProductCatalog} onEnter={loadProductOnEnter} />
-    </Route>
+    </Route>*/}
     <Route path="*" component={NotFound} />
   </Router>
 );
@@ -36,8 +38,8 @@ const RoutesComponent = ({ loadProductOnEnter }) => (
 const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({
-  loadProductOnEnter: () => dispatch(loadAllProducts())
-});
+  loadProductOnEnter: () => dispatch(getProducts())
+})
 
 const Routes = connect(mapStateToProps, mapDispatchToProps)(RoutesComponent);
 
