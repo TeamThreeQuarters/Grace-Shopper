@@ -1,5 +1,5 @@
 module.exports = {
-  extends: "eslint-config-standard",
+  extends: ["eslint-config-standard", "airbnb"],
   root: true,
   parser: "babel-eslint",
   parserOptions: {

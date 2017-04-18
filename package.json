@@ -1,5 +1,5 @@
 {
-  "name": "graceshopper",
+  "name": "three-quarters-grace-shopper",
   "version": "0.0.1",
   "description": "A happy little skeleton.",
   "main": "index.js",
@@ -85,8 +85,10 @@
     "cross-env": "^3.1.4",
     "dateformat": "^2.0.0",
     "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^6.10.3",
