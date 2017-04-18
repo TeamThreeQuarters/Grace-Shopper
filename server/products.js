@@ -7,10 +7,21 @@ const { mustBeLoggedIn, forbidden } = require('./auth.filters')
 
 module.exports = require('express').Router()
   .get('/',
-  (req, res, next) =>
-    Product.findAll()
+  (req, res, next) => {
+    const whereClause = {}
+    if (req.query) {
+      Object.keys(req.query).map(key => {
+        whereClause[key] = {
+          $ilike: `%${req.query[key]}%`
+        }
+      })
+    }
+    Product.findAll({
+      where: whereClause
+    })
       .then(products => res.json(products))
-      .catch(next))
+      .catch(next)
+  })
 
   .post('/',
   (req, res, next) =>
