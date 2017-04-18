@@ -25,8 +25,16 @@ export const getProducts = searchQuery => dispatch => {
     .catch(err => console.error('Could not load all products', err))
 }
 
+export const getCategoryProducts = categoryName => dispatch => {
+  console.log('getCategoryProducts dispatcher')
+  axios.get(`/api/products/${categoryName}`)
+    .then(products => dispatch(readAllProducts(products.data)))
+    .catch(err => console.error('Could not load all products', err))
+}
+
 export const getCategories = () => dispatch => {
-  axios.get('api/categories')
+  console.log('getCategories dispatcher')
+  axios.get('/api/categories')
     .then(response => dispatch(setCategories(response.data)))
     .catch(err => console.error('Could not load categories', err))
 }
