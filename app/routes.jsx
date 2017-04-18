@@ -16,14 +16,14 @@ import ProductCatalog from './product_catalog/containers'
 import { getProducts, getCategories, getCategoryProducts } from './product_catalog/action-creators'
 
 /* ROUTES COMPONENT */
-const RoutesComponent = ({ loadOnEnter, getCategoryProducts }) => (
+const RoutesComponent = (props) => (
   <Router history={browserHistory}>
-    <Route path="/" component={ExampleApp} onEnter={loadOnEnter}>
+    <Route path="/" component={ExampleApp} onEnter={props.loadCategories}>
       <IndexRedirect to="/jokes" />
       <Route path="/jokes" component={Jokes} />
-      <Route path="/products" component={ProductCatalog} onEnter={loadOnEnter} />
+      <Route path="/products" component={ProductCatalog} onEnter={props.getAllProducts} />
       <Route path="/products/:category" component={ProductCatalog} onEnter={(nextProps) => {
-        getCategoryProducts(nextProps.params.category)
+        props.getCategoryProducts(nextProps.params.category)
       } } />
     </Route>
     <Route path="*" component={NotFound} />
@@ -34,10 +34,8 @@ const RoutesComponent = ({ loadOnEnter, getCategoryProducts }) => (
 const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({
-  loadOnEnter: () => {
-    dispatch(getCategories())
-    dispatch(getProducts())
-  },
+  loadCategories: () => dispatch(getCategories()),
+  getAllProducts: () => dispatch(getProducts()),
   getCategoryProducts: (categoryName) => dispatch(getCategoryProducts(categoryName))
 })
 
