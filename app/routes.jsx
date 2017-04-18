@@ -6,8 +6,6 @@ import { connect } from 'react-redux'
 import store from './store'
 import ExampleApp from './components/ExampleApp'
 import Jokes from './components/Jokes'
-import Login from './components/Login'
-import WhoAmI from './components/WhoAmI'
 import NotFound from './components/NotFound'
 
 import ProductCatalog from './product_catalog/containers'
@@ -24,7 +22,7 @@ const RoutesComponent = (props) => (
       <Route path="/products" component={ProductCatalog} onEnter={props.getAllProducts} />
       <Route path="/products/:category" component={ProductCatalog} onEnter={(nextProps) => {
         props.getCategoryProducts(nextProps.params.category)
-      } } />
+      }} />
     </Route>
     <Route path="*" component={NotFound} />
   </Router>

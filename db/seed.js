@@ -18,17 +18,17 @@ function seedEverything() {
 }
 
 const categories = seed(Category, {
-  fellow: {
-    name: 'Fellow'
-  },
   instructor: {
     name: 'Instructor'
   },
-  student: {
-    name: 'Student'
-  },
   staff: {
     name: 'Staff'
+  },
+  fellow: {
+    name: 'Fellow'
+  },
+  student: {
+    name: 'Student'
   }
 })
 
