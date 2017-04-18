@@ -29,6 +29,10 @@ module.exports = require('express').Router()
       .then(user => res.status(201).json(user))
       .catch(next))
 
+  .get('/:category', (req, res, next) => {
+
+  })
+
   .get('/:id',
   (req, res, next) =>
     Product.findById(req.params.id)
