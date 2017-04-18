@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import { getProducts } from '../product_catalog/action-creators'
 
 const Navbar = props => {
-  const products = props.products
-  const categories = [...new Set(products.map(product => product.category))]
+  const { products, categories } = props
   const getProducts = event => props.getProducts(event)
 
   return (
@@ -49,7 +48,7 @@ const Navbar = props => {
                 <li role="separator" className="divider" />
                 {categories.map(category => (
                   <li key={category}>
-                    <Link to="#">
+                    <Link to={`/products/${category}`}>
                       {category}
                     </Link>
                   </li>
@@ -103,7 +102,8 @@ const Navbar = props => {
 }
 
 const mapStateToProps = state => ({
-  products: state.products.products
+  products: state.products.products,
+  categories: state.products.categories
 })
 
 const mapDispatchToProps = dispatch => ({

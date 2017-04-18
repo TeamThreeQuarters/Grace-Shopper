@@ -3,7 +3,8 @@
 import axios from 'axios'
 
 import {
-  READ_ALL_PRODUCTS
+  READ_ALL_PRODUCTS,
+  SET_CATEGORIES
 } from './constants'
 
 /* ACTION-CREATORS */
@@ -12,21 +13,20 @@ const readAllProducts = products => ({
   products
 })
 
+const setCategories = categories => ({
+  type: SET_CATEGORIES,
+  categories,
+})
+
 /* THUNK DISPATCHERS */
 export const getProducts = searchQuery => dispatch => {
-  let URI = '/api/products'
-  // if (keyword) URI += `?keyword=${keyword}`
-  // if (searchQuery) URI += `?name=${searchQuery.name}`
-
-  // if (searchQuery) {
-  //   const queries = []
-  //   Object.keys(searchQuery).forEach(key => {
-  //     queries.push(`${key}=${searchQuery[key]}`)
-  //   })
-  //   URI += `?${queries.join('&')}`
-  // }
-
-  axios.get(URI, { params: searchQuery })
+  axios.get('/api/products', { params: searchQuery })
     .then(products => dispatch(readAllProducts(products.data)))
     .catch(err => console.error('Could not load all products', err))
+}
+
+export const getCategories = () => dispatch => {
+  axios.get('api/categories')
+    .then(response => dispatch(setCategories(response.data)))
+    .catch(err => console.error('Could not load categories', err))
 }

@@ -8,9 +8,10 @@ function seedEverything() {
   const seeded = {
     users: users(),
     things: things(),
-    products: products()
+    categories: categories(),
   }
 
+  seeded.products = products(seeded)
   seeded.favorites = favorites(seeded)
 
   return Promise.props(seeded)
@@ -31,7 +32,7 @@ const categories = seed(Category, {
   }
 })
 
-const products = seed(Product, {
+const products = seed(Product, ({ categories }) => ({
   sam: {
     name: 'Sam Wheeler',
     images: ['https://ca.slack-edge.com/T024FPYBQ-U2VKD56EB-59de4a404278-512'],
@@ -81,7 +82,7 @@ const products = seed(Product, {
     category_id: categories.student.id,
     tags: ['male', 'white', 'terrific']
   }
-})
+}))
 
 const users = seed(User, {
   god: {

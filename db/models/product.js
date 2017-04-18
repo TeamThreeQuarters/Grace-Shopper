@@ -12,10 +12,6 @@ module.exports = db => db.define('products', {
     defaultValue: []
   },
   description: TEXT,
-  category: {
-    type: STRING,
-    allowNull: false
-  },
   tags: {
     type: ARRAY(STRING),
     defaultValue: []
