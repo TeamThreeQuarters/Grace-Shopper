@@ -20,13 +20,16 @@ export default ({ login }) => {
   }
 
   return (
-    <form onSubmit={createUserAndLogin}>
-      <label>Email:</label>
-      <input name="email" />
-      <label>Password:</label>
-      <input name="password" type="password" />
-      <input type="submit" value="Signup" />
-    </form>
+    <div>
+      <h2>Sign Up</h2>
+      <form onSubmit={createUserAndLogin}>
+        <label>Email:</label>
+        <input name="email" />
+        <label>Password:</label>
+        <input name="password" type="password" />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
   );
 };
 

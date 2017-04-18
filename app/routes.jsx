@@ -11,7 +11,7 @@ import WhoAmI from './components/WhoAmI';
 import NotFound from './components/NotFound';
 
 import ProductCatalog from './product_catalog/containers';
-// import Signup from './signup/containers'
+import Signup from './signup/containers'
 
 /* Dispatchers */
 
@@ -20,16 +20,12 @@ import { getProducts } from './product_catalog/action-creators'
 /* ROUTES COMPONENT */
 const RoutesComponent = ({ loadProductOnEnter }) => (
   <Router history={browserHistory}>
-
-    <Route path="/" component={ExampleApp} onEnter={loadProductOnEnter}>
-      <IndexRedirect to="/jokes" />
-      <Route path="/jokes" component={Jokes} />
+    <Route path="/" component={ExampleApp} onEnter={loadProductOnEnter} >
+      <IndexRedirect to="/products" />
       <Route path="/products" component={ProductCatalog} onEnter={loadProductOnEnter} />
+      <Route path="/signup" component={Signup} />
+      <Route path="/login" component={Login} />
     </Route>
-    {/*<Route path="/">
-      <Route path="/Signup" component={Signup} />
-      <Route path="/products" component={ProductCatalog} onEnter={loadProductOnEnter} />
-    </Route>*/}
     <Route path="*" component={NotFound} />
   </Router>
 );
