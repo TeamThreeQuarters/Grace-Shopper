@@ -14,11 +14,12 @@ export const authenticated = user => ({
 })
 
 export const login = (username, password) =>
-  dispatch =>
-    axios.post('/api/auth/login/local',
+  dispatch => {
+    return axios.post('/api/auth/login/local',
       {username, password})
       .then(() => dispatch(whoami()))
       .catch(() => dispatch(whoami()))
+  }
 
 export const logout = () =>
   dispatch =>
