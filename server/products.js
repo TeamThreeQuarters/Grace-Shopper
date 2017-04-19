@@ -3,8 +3,6 @@
 const db = require('APP/db')
 const { Product, Category } = db
 
-// const { mustBeLoggedIn, forbidden } = require('./auth.filters')
-
 module.exports = require('express').Router()
   .get('/',
   (req, res, next) => {
