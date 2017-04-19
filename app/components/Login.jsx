@@ -16,6 +16,7 @@ export const Login = ({ login, history }) => (
       <label>Password: </label>
       <input name="password" type="password" />
       <input type="submit" value="Submit" />
+      <a href="api/auth/login/google">Sign In with Google</a>
     </form>
   </div>
 )
