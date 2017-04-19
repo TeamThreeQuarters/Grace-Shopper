@@ -26,10 +26,10 @@ export const getProducts = searchQuery => dispatch => {
 }
 
 export const getCategoryProducts = categoryName => dispatch => {
-  console.log('getCategoryProducts dispatcher')
+  console.log('getCategoryProducts dispatcher') // OB/SBW: undead code
   axios.get(`/api/products/${categoryName}`)
     .then(products => dispatch(readAllProducts(products.data)))
-    .catch(err => console.error('Could not load all products', err))
+    .catch(err => console.error('Could not load all products', err)) // OB/SBW: try "toasting" them https://tomchentw.github.io/react-toastr/
 }
 
 export const getCategories = () => dispatch => {

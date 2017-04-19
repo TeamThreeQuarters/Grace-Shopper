@@ -3,6 +3,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+// OB/SBW: more undead code, put it to rest
 // import Login from './Login'
 // import WhoAmI from './WhoAmI'
 

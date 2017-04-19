@@ -51,6 +51,7 @@ describe('/api/products', () => {
           })
       )
 
+      // OB/SBW: might be unnecessary (what does it test that the later one doesn't)
       it('returns an empty array if no result matches query', () =>
         request(app)
           .get(`/api/products?name=nothingmatches`)
