@@ -1,7 +1,7 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 
-export const Login = ({ login, history }) => (
+export const Login = ({ login }) => (
   <div>
     <h2>Login</h2>
     <form onSubmit={evt => {
