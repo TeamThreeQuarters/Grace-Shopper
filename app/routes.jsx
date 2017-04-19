@@ -22,8 +22,10 @@ const RoutesComponent = (props) => (
       <IndexRedirect to="/jokes" />
       <Route path="/jokes" component={Jokes} />
       <Route path="/products" component={ProductCatalog} onEnter={props.getAllProducts} />
-      <Route path="/products/search" component={ProductCatalog} />
-      <Route path="/products/:category" component={ProductCatalog} onEnter={(nextProps) => {
+      <Route path="/products/search" component={ProductCatalog} onEnter={nextProps => {
+        props.getSearchProducts({ name: nextProps.location.query.keywords })
+      }} />
+      <Route path="/products/:category" component={ProductCatalog} onEnter={nextProps => {
         props.getCategoryProducts(nextProps.params.category)
       }} />
       <Route path="/signup" component={Signup} />
@@ -40,7 +42,8 @@ const mapStateToProps = () => ({})
 const mapDispatchToProps = dispatch => ({
   loadCategories: () => dispatch(getCategories()),
   getAllProducts: () => dispatch(getProducts()),
-  getCategoryProducts: (categoryName) => dispatch(getCategoryProducts(categoryName))
+  getCategoryProducts: categoryName => dispatch(getCategoryProducts(categoryName)),
+  getSearchProducts: searchQuery => dispatch(getProducts(searchQuery))
 })
 
 const Routes = connect(mapStateToProps, mapDispatchToProps)(RoutesComponent);
