@@ -3,9 +3,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Navbar from './Navbar'
+import Navbar from 'APP/app/navigation/containers'
 
-const ExampleApp = ({ user, children }) => (
+const Root = ({ user, children }) => (
   <div>
     <Navbar user={user} />
     {children}
@@ -18,4 +18,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = () => ({})
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExampleApp)
+export default connect(mapStateToProps, mapDispatchToProps)(Root)

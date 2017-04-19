@@ -3,7 +3,7 @@ import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 /* CONTAINERS */
-import ExampleApp from './components/ExampleApp';
+import Root from './components/Root';
 import Jokes from './components/Jokes';
 import Login from './components/Login';
 import NotFound from './components/NotFound';
@@ -18,10 +18,11 @@ import { getProducts, getCategories, getCategoryProducts } from './product_catal
 /* ROUTES COMPONENT */
 const RoutesComponent = (props) => (
   <Router history={browserHistory}>
-    <Route path="/" component={ExampleApp} onEnter={props.loadCategories}>
+    <Route path="/" component={Root} onEnter={props.loadCategories}>
       <IndexRedirect to="/jokes" />
       <Route path="/jokes" component={Jokes} />
       <Route path="/products" component={ProductCatalog} onEnter={props.getAllProducts} />
+      <Route path="/products/search" component={ProductCatalog} />
       <Route path="/products/:category" component={ProductCatalog} onEnter={(nextProps) => {
         props.getCategoryProducts(nextProps.params.category)
       }} />
