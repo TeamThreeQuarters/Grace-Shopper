@@ -11,4 +11,4 @@ An Amazon.com clone where you can buy and sell FullStack Instructors, Fellows an
 
 
 ### Data Model
-![Data Model](https://drive.google.com/open?id=0B04oxt_9ab2pTmFIbU4zRUdhUzg "Data Model")
+![Data Model](/docs/Grace-Shopper%20Data%20Model.png?raw=true "Data Model")
