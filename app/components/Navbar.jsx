@@ -2,10 +2,13 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { getProducts } from '../product_catalog/action-creators'
+import { logout } from 'APP/app/reducers/auth'
 
 const Navbar = props => {
   const { products, categories } = props
   const getProducts = event => props.getProducts(event)
+  const user = props.user;
+  const logout = props.logout;
 
   return (
     <div className="navbar navbar-default">
@@ -62,24 +65,28 @@ const Navbar = props => {
 
           {/* Account Related Links */}
           <ul className="nav navbar-nav navbar-right">
-            <li className="dropdown">
-              <Link
-                to="#"
-                className="dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false">
-                Account <span className="caret" />
-              </Link>
-              <ul className="dropdown-menu">
-                <li><Link to="#">Your Account</Link></li>
-                <li><Link to="#">Your Orders</Link></li>
-                <li><Link to="#">Your Wishlist</Link></li>
-                <li role="separator" className="divider" />
-                <li><Link to="#">Not you? Sign Out</Link></li>
-              </ul>
-            </li>
+            {user
+              ? <li className="dropdown">
+                <Link
+                  to="#"
+                  className="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  Account <span className="caret" />
+                </Link>
+                <ul className="dropdown-menu">
+                  <li><Link to="/account">Your Account</Link></li>
+                  <li><Link to="#">Your Orders</Link></li>
+                  <li><Link to="#">Your Wishlist</Link></li>
+                  <li role="separator" className="divider" />
+                  <li><button onClick={logout}>Sign Out</button></li>
+                </ul>
+              </li>
+              : <li><Link to="/login">Login</Link></li>
+            }
+            <li><Link to="/signup">Sign Up</Link></li>
             <li><Link to="#">Orders</Link></li>
             <li><Link to="#">Cart</Link></li>
           </ul>
@@ -89,10 +96,17 @@ const Navbar = props => {
             <div className="form-group">
               <div className="input-group">
                 <input type="text" className="form-control" placeholder="Search" name="search" />
-                <span className="input-group-btn"><button type="submit" className="btn"><span className="glyphicon glyphicon-search" /></button></span>
+                <span className="input-group-btn">
+                  <button type="submit" className="btn">
+                    <span className="glyphicon glyphicon-search" />
+                  </button>
+                </span>
               </div>
             </div>
           </form>
+
+          {/* User greeting if they are logged in */}
+          {user && <p>Hello {user.email}!</p>}
 
         </div>
       </div>
@@ -111,7 +125,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(getProducts({
       name: event.target.search.value
     }))
-  }
+  },
+  logout: () => dispatch(logout())
 })
 
 const NavbarContainer = connect(mapStateToProps, mapDispatchToProps)(Navbar)

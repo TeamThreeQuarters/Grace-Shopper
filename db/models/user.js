@@ -8,10 +8,11 @@ module.exports = db => db.define('users', {
   name: STRING,
   email: {
     type: STRING,
+    unique: true,
     validate: {
       isEmail: true,
       notEmpty: true,
-    }
+    },
   },
 
   // We support oauth, so users may or may not have passwords.
