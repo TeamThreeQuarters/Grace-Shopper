@@ -10,10 +10,10 @@ import Navbar from './Navbar'
 
 const ExampleApp = ({ user, children }) => (
   <div>
-    <Navbar user={user}/>
-    {/*<nav>
+    <Navbar user={user} />
+    {/* <nav>
       {user ? <WhoAmI /> : <Login />}
-    </nav>*/}
+    </nav> */}
     {children}
   </div>
 )
