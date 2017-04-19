@@ -1,3 +1,4 @@
+// OB/SBW: big file, maybe break it up
 import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
@@ -99,6 +100,7 @@ const Navbar = props => {
           </ul>
 
           {/* Search Bar */}
+          {/* OB/SBW: http://ericgio.github.io/react-bootstrap-typeahead/ */}
           <form className="navbar-form navbar-left" role="search" onSubmit={getProducts}>
             <div className="form-group">
               <div className="input-group">

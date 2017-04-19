@@ -42,6 +42,15 @@ const mapDispatchToProps = dispatch => ({
   getCategoryProducts: (categoryName) => dispatch(getCategoryProducts(categoryName))
 })
 
+// OB/SBW ^^ can be shortened
+/*
+const mapDispatchToProps = {
+  loadCategories: getCategories,
+  getAllProducts: getProducts,
+  getCategoryProducts
+}
+*/
+
 const Routes = connect(mapStateToProps, mapDispatchToProps)(RoutesComponent);
 
 export default Routes;
