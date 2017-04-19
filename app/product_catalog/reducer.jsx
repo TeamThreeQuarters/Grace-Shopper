@@ -1,11 +1,13 @@
 'use strict'
 
 import {
-  READ_ALL_PRODUCTS
+  READ_ALL_PRODUCTS,
+  SET_CATEGORIES
 } from './constants'
 
 const initialState = {
-  products: []
+  products: [],
+  categories: []
 }
 
 const productCatalogReducer = (state = initialState, action) => {
@@ -14,6 +16,10 @@ const productCatalogReducer = (state = initialState, action) => {
   switch (action.type) {
   case READ_ALL_PRODUCTS:
     newState.products = action.products
+    break
+
+  case SET_CATEGORIES:
+    newState.categories = action.categories
     break
 
   default:

@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('APP/db')
-const Product = db.model('products')
+const { Product, Category } = db
 
 const { mustBeLoggedIn, forbidden } = require('./auth.filters')
 
@@ -28,7 +28,17 @@ module.exports = require('express').Router()
     Product.create(req.body)
       .then(user => res.status(201).json(user))
       .catch(next))
-
+  .get('/:categoryName',
+    (req, res, next) => {
+      Category.findOne({
+        where: {
+          name: req.params.categoryName
+        }
+      })
+        .then(category => category.getProducts())
+        .then(products => res.json(products))
+        .catch(next)
+    })
   .get('/:id',
   (req, res, next) =>
     Product.findById(req.params.id)
