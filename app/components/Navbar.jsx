@@ -5,7 +5,7 @@ import { getProducts } from '../product_catalog/action-creators'
 import { logout } from 'APP/app/reducers/auth'
 
 const Navbar = props => {
-  const { products, categories } = props
+  const { categories } = props
   const getProducts = event => props.getProducts(event)
   const user = props.user;
   const logout = props.logout;

@@ -1,12 +1,12 @@
 import React from 'react'
-import chai, {expect} from 'chai'
+import chai, { expect } from 'chai'
 chai.use(require('chai-enzyme')())
-import {shallow} from 'enzyme'
-import {spy} from 'sinon'
+import { shallow } from 'enzyme'
+import { spy } from 'sinon'
 chai.use(require('sinon-chai'))
-import {createStore} from 'redux'
+import { createStore } from 'redux'
 
-import WhoAmIContainer, {WhoAmI} from './WhoAmI'
+import WhoAmIContainer, { WhoAmI } from './WhoAmI'
 
 /* global describe it beforeEach */
 describe('<WhoAmI/>', () => {
@@ -16,7 +16,7 @@ describe('<WhoAmI/>', () => {
   const logout = spy()
   let root
   beforeEach('render the root', () =>
-    root = shallow(<WhoAmI user={user} logout={logout}/>)
+    root = shallow(<WhoAmI user={user} logout={logout} />)
   )
 
   it('greets the user', () => {
@@ -35,14 +35,16 @@ describe('<WhoAmI/>', () => {
 
 describe("<WhoAmI/>'s connection", () => {
   const state = {
-    auth: {name: 'Dr. Bones'}
+    auth: { name: 'Dr. Bones' }
   }
 
-  let root, store, dispatch
+  // let root, store, dispatch
+  let root, store
   beforeEach('create store and render the root', () => {
     store = createStore(state => state, state)
-    dispatch = spy(store, 'dispatch')
-    root = shallow(<WhoAmIContainer store={store}/>)
+    // dispatch = spy(store, 'dispatch')
+    spy(store, 'dispatch')
+    root = shallow(<WhoAmIContainer store={store} />)
   })
 
   it('gets prop.user from state.auth', () => {

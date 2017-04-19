@@ -3,8 +3,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Login from './Login'
-import WhoAmI from './WhoAmI'
+// import Login from './Login'
+// import WhoAmI from './WhoAmI'
 
 import Navbar from './Navbar'
 

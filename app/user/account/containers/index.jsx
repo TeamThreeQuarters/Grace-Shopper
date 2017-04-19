@@ -3,9 +3,9 @@
 import { connect } from 'react-redux';
 import Account from '../components';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = () => ({});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = () => ({});
 
 const AccountContainer = connect(mapStateToProps, mapDispatchToProps)(Account);
 
