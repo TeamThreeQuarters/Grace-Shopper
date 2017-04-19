@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { getProducts } from '../product_catalog/action-creators'
 import { logout } from 'APP/app/reducers/auth'
@@ -129,6 +129,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(getProducts({
       name: event.target.search.value
     }))
+    browserHistory.push(`/products?name=${event.target.search.value}`)
   },
   logout: () => dispatch(logout())
 })
