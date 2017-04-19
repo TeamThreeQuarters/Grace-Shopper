@@ -2,6 +2,7 @@
 
 import React from 'react';
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 export default ({ login }) => {
   function createUserAndLogin(evt) {
@@ -13,7 +14,10 @@ export default ({ login }) => {
     axios.post('/api/users', userData)
       .then(ret => ret.data)
       .then(user => {
-        login(user.email, user.password);
+        login(user.email, user.password)
+        if (browserHistory) {
+          browserHistory.push('/products');
+        }
       })
       .catch(err => console.error(err));
   }
