@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { getProducts } from '../product_catalog/action-creators'
-import {logout} from 'APP/app/reducers/auth'
+import { logout } from 'APP/app/reducers/auth'
 
 const Navbar = props => {
   const { products, categories } = props
@@ -14,7 +14,7 @@ const Navbar = props => {
     <div className="navbar navbar-default">
       <div className="container-fluid">
 
-        {/*Brand and toggle get grouped for better mobile display*/}
+        {/* Brand and toggle get grouped for better mobile display */}
         <div className="navbar-header">
           <button
             type="button"
@@ -30,11 +30,10 @@ const Navbar = props => {
           <Link to="/" className="navbar-brand">Grace Shopper</Link>
         </div>
 
-        {/*Collect the nav links, forms, and other content for toggling*/}
+        {/* Collect the nav links, forms, and other content for toggling */}
         <div className="collapse navbar-collapse" id="navbar-collapse-target">
 
           <ul className="nav navbar-nav">
-            {/*<li className="active"><Link to="#">Link <span className="sr-only">(current)</span></Link></li>*/}
             <li><Link to="#">Browse History</Link></li>
             <li className="dropdown">
               <Link
@@ -64,10 +63,10 @@ const Navbar = props => {
             </li>
           </ul>
 
-          {/*Account Related Links*/}
+          {/* Account Related Links */}
           <ul className="nav navbar-nav navbar-right">
-            {user ? 
-              <li className="dropdown">
+            {user
+              ? <li className="dropdown">
                 <Link
                   to="#"
                   className="dropdown-toggle"
@@ -84,26 +83,30 @@ const Navbar = props => {
                   <li role="separator" className="divider" />
                   <li><button onClick={logout}>Sign Out</button></li>
                 </ul>
-              </li> :
-              <li><Link to="/login">Login</Link></li>
+              </li>
+              : <li><Link to="/login">Login</Link></li>
             }
             <li><Link to="/signup">Sign Up</Link></li>
             <li><Link to="#">Orders</Link></li>
             <li><Link to="#">Cart</Link></li>
           </ul>
 
-          {/*Search Bar*/}
+          {/* Search Bar */}
           <form className="navbar-form navbar-left" role="search" onSubmit={getProducts}>
             <div className="form-group">
               <div className="input-group">
                 <input type="text" className="form-control" placeholder="Search" name="search" />
-                <span className="input-group-btn"><button type="submit" className="btn"><span className="glyphicon glyphicon-search" /></button></span>
+                <span className="input-group-btn">
+                  <button type="submit" className="btn">
+                    <span className="glyphicon glyphicon-search" />
+                  </button>
+                </span>
               </div>
             </div>
           </form>
 
           {/* User greeting if they are logged in */}
-          {user && <p>Hello {user.email}!</p>} 
+          {user && <p>Hello {user.email}!</p>}
 
         </div>
       </div>

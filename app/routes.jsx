@@ -26,7 +26,7 @@ const RoutesComponent = (props) => (
       <Route path="/products" component={ProductCatalog} onEnter={props.getAllProducts} />
       <Route path="/products/:category" component={ProductCatalog} onEnter={(nextProps) => {
         props.getCategoryProducts(nextProps.params.category)
-      } } />
+      }} />
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
       <Route path="/account" component={Account} />
