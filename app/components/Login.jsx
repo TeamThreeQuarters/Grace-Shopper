@@ -4,8 +4,10 @@ export const Login = ({ login }) => (
   <div> 
     <h2>Login</h2>
     <form onSubmit={evt => {
+      console.log('Reached line 7.');
       evt.preventDefault()
       login(evt.target.username.value, evt.target.password.value)
+      console.log('Reached here.');
     } }>
       <label>Email: </label>
       <input name="username" />

@@ -33,6 +33,7 @@ describe('<Login />', () => {
   describe('when submitted', () => {
     const login = spy()
     const root = shallow(<Login login={login}/>)
+    const form = root.find('form');
     const submitEvent = {
       preventDefault: spy(),
       target: {
@@ -44,7 +45,7 @@ describe('<Login />', () => {
     beforeEach('submit', () => {
       login.reset()
       submitEvent.preventDefault.reset()
-      root.simulate('submit', submitEvent)
+      form.simulate('submit', submitEvent)
     })
 
     it('calls props.login with credentials', () => {
