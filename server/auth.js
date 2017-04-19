@@ -50,8 +50,8 @@ OAuth.setupStrategy({
   provider: 'google',
   strategy: require('passport-google-oauth').OAuth2Strategy,
   config: {
-    clientID: '314434030871-fksc8paof7n8g93m702v9ge7i766aiuv.apps.googleusercontent.com',
-    clientSecret: 'CF22pff76sNNbPBhS0dpsN8s',
+    clientID: env.GOOGLE_CLIENT_ID,
+    clientSecret: env.GOOGLE_CLIENT_SECRET,
     callbackURL: `${app.baseUrl}/api/auth/login/google`,
   },
   passport
