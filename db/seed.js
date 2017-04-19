@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('APP/db')
-  , { User, Thing, Favorite, Promise, Product, Category } = db
+  , { User, Thing, Favorite, Promise, Product, Category, Order, OrderItem } = db
   , { mapValues } = require('lodash')
 
 function seedEverything() {
@@ -11,8 +11,11 @@ function seedEverything() {
     categories: categories(),
   }
 
+  seeded.orders = orders(seeded)
+  // seeded
   seeded.products = products(seeded)
   seeded.favorites = favorites(seeded)
+  seeded.orderItems = orderItems(seeded)
 
   return Promise.props(seeded)
 }
@@ -96,6 +99,23 @@ const users = seed(User, {
     password: '1234'
   },
 })
+
+const orders = seed(Order, {
+  completelyDeliveredOrder: {},
+  mixedOrder: {}
+})
+
+const orderItems = seed(OrderItem, ({ orders }) => ({
+  completedOrderItem1: {
+    status: 'delivered'
+  },
+  completedOrderItem2: {
+    status: 'delivered'
+  },
+  completedOrderItem3: {
+    status: 'delivered'
+  },
+}))
 
 const things = seed(Thing, {
   surfing: { name: 'surfing' },

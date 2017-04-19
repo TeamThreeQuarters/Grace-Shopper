@@ -1,6 +1,9 @@
 'use strict'
 
-module.exports = db => db.define('order', {
+const { ENUM } = require('sequelize')
+
+module.exports = db => db.define('orders', {
+  // TODO Paid?
 })
 
 module.exports.associations = (Order, {OrderItem}) => {
