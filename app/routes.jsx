@@ -11,7 +11,8 @@ import WhoAmI from './components/WhoAmI';
 import NotFound from './components/NotFound';
 
 import ProductCatalog from './product_catalog/containers';
-import Signup from './signup/containers'
+import Signup from './signup/containers';
+import Account from './user/account/containers';
 
 /* Dispatchers */
 
@@ -25,6 +26,7 @@ const RoutesComponent = ({ loadProductOnEnter }) => (
       <Route path="/products" component={ProductCatalog} onEnter={loadProductOnEnter} />
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
+      <Route path="/account" component={Account} />
     </Route>
     <Route path="*" component={NotFound} />
   </Router>

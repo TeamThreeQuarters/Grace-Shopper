@@ -79,7 +79,7 @@ const Navbar = props => {
                   Account <span className="caret" />
                 </Link>
                 <ul className="dropdown-menu">
-                  <li><Link to="#">Your Account</Link></li>
+                  <li><Link to="/account">Your Account</Link></li>
                   <li><Link to="#">Your Orders</Link></li>
                   <li><Link to="#">Your Wishlist</Link></li>
                   <li role="separator" className="divider" />
