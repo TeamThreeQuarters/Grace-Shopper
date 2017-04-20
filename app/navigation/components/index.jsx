@@ -1,12 +1,10 @@
 import React from 'react'
-import { Link, browserHistory } from 'react-router'
-import { connect } from 'react-redux'
-import { getProducts } from '../product_catalog/action-creators'
-import { logout } from 'APP/app/reducers/auth'
+import { Link } from 'react-router'
+
+import Search from '../containers/Search'
 
 const Navbar = props => {
   const { categories } = props
-  const getProducts = event => props.getProducts(event)
   const user = props.user;
   const logout = props.logout;
 
@@ -98,19 +96,7 @@ const Navbar = props => {
             <li><Link to="#">Cart</Link></li>
           </ul>
 
-          {/* Search Bar */}
-          <form className="navbar-form navbar-left" role="search" onSubmit={getProducts}>
-            <div className="form-group">
-              <div className="input-group">
-                <input type="text" className="form-control" placeholder="Search" name="search" />
-                <span className="input-group-btn">
-                  <button type="submit" className="btn">
-                    <span className="glyphicon glyphicon-search" />
-                  </button>
-                </span>
-              </div>
-            </div>
-          </form>
+          <Search />
 
         </div>
       </div>
@@ -118,22 +104,4 @@ const Navbar = props => {
   )
 }
 
-const mapStateToProps = state => ({
-  products: state.products.products,
-  categories: state.products.categories
-})
-
-const mapDispatchToProps = dispatch => ({
-  getProducts: event => {
-    event.preventDefault()
-    dispatch(getProducts({
-      name: event.target.search.value
-    }))
-    browserHistory.push(`/products?name=${event.target.search.value}`)
-  },
-  logout: () => dispatch(logout())
-})
-
-const NavbarContainer = connect(mapStateToProps, mapDispatchToProps)(Navbar)
-
-export default NavbarContainer
+export default Navbar
