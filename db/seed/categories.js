@@ -1,4 +1,5 @@
 'use strict'
+
 const db = require('APP/db')
 const { Category } = db
 const seed = require('./_seed')
