@@ -2,7 +2,7 @@
 
 const { STRING } = require('sequelize')
 
-module.exports = db => db.define('shopping_cart_items', {
+module.exports = db => db.define('vendor', {
   name: {
     type: STRING,
     allowNull: false,

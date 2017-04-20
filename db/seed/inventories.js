@@ -4,21 +4,22 @@ const db = require('APP/db')
 const { Inventory } = db
 const seed = require('./_seed')
 
-const inventories = seed(Inventory, ({ vendors, products }) => (
-  {
+const inventories = seed(Inventory, ({ vendors, products }) => {
+  console.log(vendors)
+  return {
     fullStackOmris: {
-      vendor: vendors.fullstack.id,
-      product: products.omri.id,
+      vendor_id: vendors.fullstack.id,
+      product_id: products.omri.id,
       quantity: 10,
       price: 99
     },
     gracehopperLisas: {
-      vendor: vendors.gracehopper.id,
-      product: products.lisa.id,
+      vendor_id: vendors.gracehopper.id,
+      product_id: products.lisa.id,
       quantity: 7,
       price: 75
     }
-  })
-)
+  }
+})
 
 module.exports = inventories

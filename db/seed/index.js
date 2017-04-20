@@ -3,10 +3,10 @@
 const db = require('APP/db')
 const { Promise } = db
 const categories = require('./categories')
-const products = require('./products')
-const users = require('./users')
 const vendors = require('./vendors')
+const products = require('./products')
 const inventories = require('./inventories')
+const users = require('./users')
 
 if (module === require.main) {
   db.didSync

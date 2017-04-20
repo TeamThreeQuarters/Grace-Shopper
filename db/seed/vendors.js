@@ -8,8 +8,8 @@ const vendors = seed(Vendor, {
   fullstack: {
     name: 'FullStack'
   },
-  staff: {
-    gracehopper: 'GraceHopper'
+  gracehopper: {
+    name: 'GraceHopper'
   }
 })
 

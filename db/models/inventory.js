@@ -2,7 +2,7 @@
 
 const { INTEGER, DECIMAL } = require('sequelize')
 
-module.exports = db => db.define('shopping_cart_items', {
+module.exports = db => db.define('inventory', {
   quantity: {
     type: INTEGER,
     allowNull: false,
