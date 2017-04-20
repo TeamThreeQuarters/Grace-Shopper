@@ -24,7 +24,7 @@ module.exports = db => db.define('orderItems', {
   },
 })
 
-module.exports.associations = (User, { Inventory }) => {
-  User.hasOne(Inventory)
+module.exports.associations = (OrderItem, { Inventory }) => {
+  OrderItem.belongsTo(Inventory)
 }
 
