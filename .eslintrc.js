@@ -23,7 +23,7 @@ module.exports = {
     "new-parens": "off",
     "indent": ["error", 2, { SwitchCase: 0 }],
     "arrow-body-style": ["warn", "as-needed"],
-
+    "no-trailing-space": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react/react-in-jsx-scope": "error",
