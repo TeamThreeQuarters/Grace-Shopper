@@ -22,6 +22,7 @@ const app = require('APP')
     Category: require('./category'),
     Product: require('./product'),
     Inventory: require('./inventory'),
+    ShoppingCart: require('./shoppingCart'),
     ShoppingCartItem: require('./shoppingCartItem')
   }
   , { mapValues } = require('lodash')
