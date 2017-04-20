@@ -14,6 +14,7 @@ import Account from './user/account/containers';
 
 /* Dispatchers */
 import { getProducts, getCategories, getCategoryProducts } from './product_catalog/action-creators'
+import { setSearchQuery } from './navigation/action-creators'
 
 /* ROUTES COMPONENT */
 const RoutesComponent = (props) => (
@@ -23,7 +24,7 @@ const RoutesComponent = (props) => (
       <Route path="/jokes" component={Jokes} />
       <Route path="/products" component={ProductCatalog} onEnter={props.getAllProducts} />
       <Route path="/products/search" component={ProductCatalog} onEnter={nextProps => {
-        props.getSearchProducts({ name: nextProps.location.query.keywords })
+        props.getSearchProducts({ keywords: nextProps.location.query.keywords })
       }} />
       <Route path="/products/:category" component={ProductCatalog} onEnter={nextProps => {
         props.getCategoryProducts(nextProps.params.category)
@@ -43,7 +44,10 @@ const mapDispatchToProps = dispatch => ({
   loadCategories: () => dispatch(getCategories()),
   getAllProducts: () => dispatch(getProducts()),
   getCategoryProducts: categoryName => dispatch(getCategoryProducts(categoryName)),
-  getSearchProducts: searchQuery => dispatch(getProducts(searchQuery))
+  getSearchProducts: searchQuery => {
+    dispatch(getProducts(searchQuery))
+    dispatch(setSearchQuery(searchQuery.keywords))
+  }
 })
 
 const Routes = connect(mapStateToProps, mapDispatchToProps)(RoutesComponent);

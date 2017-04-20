@@ -19,20 +19,17 @@ const setCategories = categories => ({
 })
 
 /* THUNK DISPATCHERS */
-export const getProducts = searchQuery => dispatch => {
+export const getProducts = searchQuery => dispatch =>
   axios.get('/api/products', { params: searchQuery })
     .then(products => dispatch(readAllProducts(products.data)))
     .catch(err => console.error('Could not load all products', err))
-}
 
-export const getCategoryProducts = categoryName => dispatch => {
+export const getCategoryProducts = categoryName => dispatch =>
   axios.get(`/api/products/${categoryName}`)
     .then(products => dispatch(readAllProducts(products.data)))
     .catch(err => console.error('Could not load all products', err))
-}
 
-export const getCategories = () => dispatch => {
+export const getCategories = () => dispatch =>
   axios.get('/api/categories')
     .then(response => dispatch(setCategories(response.data)))
     .catch(err => console.error('Could not load categories', err))
-}

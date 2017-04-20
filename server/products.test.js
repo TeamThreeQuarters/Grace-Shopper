@@ -53,13 +53,13 @@ describe('/api/products', () => {
 
       it('returns an empty array if no result matches query', () =>
         request(app)
-          .get(`/api/products?name=nothingmatches`)
+          .get(`/api/products?keywords=nothingmatches`)
           .then(res => expect(res.body).to.have.length(0))
       )
 
       it('returns an array of all the products that match the query', () =>
         request(app)
-          .get(`/api/products?name=Here`)
+          .get(`/api/products?keywords=Here`)
           .then(res => {
             expect(res.body).to.have.length(1)
             expect(res.body[0]).to.include({ name: sampleProducts[0].name })

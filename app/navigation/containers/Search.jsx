@@ -4,17 +4,20 @@ import { browserHistory } from 'react-router'
 
 import Search from '../components/Search'
 import { getProducts } from 'APP/app/product_catalog/action-creators'
-
-const searchQueryString = browserHistory.getCurrentLocation().query.keywords
+import { setSearchQuery } from 'APP/app/navigation/action-creators'
 
 const SearchLocalContainer = class extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      searchQuery: searchQueryString
+      searchQuery: props.searchQuery
     }
     this.searchChange = this.searchChange.bind(this)
     this.searchSubmit = this.searchSubmit.bind(this)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ searchQuery: nextProps.searchQuery })
   }
 
   searchChange(event) {
@@ -24,7 +27,8 @@ const SearchLocalContainer = class extends React.Component {
   searchSubmit(event) {
     event.preventDefault()
     browserHistory.push(`/products/search?keywords=${this.state.searchQuery}`)
-    this.props.getProducts({ name: this.state.searchQuery })
+    this.props.getProducts({ keywords: this.state.searchQuery })
+    this.props.setSearchQuery(this.state.searchQuery)
   }
 
   render() {
@@ -37,10 +41,13 @@ const SearchLocalContainer = class extends React.Component {
   }
 }
 
-const mapStateToProps = () => ({})
+const mapStateToProps = state => ({
+  searchQuery: state.navigation.searchQuery
+})
 
 const mapDispatchToProps = dispatch => ({
-  getProducts: searchQuery => dispatch(getProducts(searchQuery))
+  getProducts: searchQuery => dispatch(getProducts(searchQuery)),
+  setSearchQuery: searchQuery => dispatch(setSearchQuery(searchQuery))
 })
 
 const SearchContainer = connect(mapStateToProps, mapDispatchToProps)(SearchLocalContainer)

@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router'
 
+import ProductNav from '../containers/ProductNav'
+import AccountNav from '../containers/AccountNav'
 import Search from '../containers/Search'
 
 const Navbar = props => {
-  const { categories } = props
+  const categories = props.categories
   const user = props.user;
-  const logout = props.logout;
 
   return (
     <div className="navbar navbar-default">
@@ -31,71 +32,13 @@ const Navbar = props => {
         {/* Collect the nav links, forms, and other content for toggling */}
         <div className="collapse navbar-collapse" id="navbar-collapse-target">
 
-          <ul className="nav navbar-nav">
-            <li><Link to="#">Browse History</Link></li>
-            <li className="dropdown">
-              <Link
-                to="#"
-                className="dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false">
-                Category <span className="caret" />
-              </Link>
-              <ul className="dropdown-menu">
-                <li><Link to="/products">All Products</Link></li>
-                <li role="separator" className="divider" />
-                {categories.map(category => (
-                  <li key={category}>
-                    <Link to={`/products/${category}`}>
-                      {category}
-                    </Link>
-                  </li>
-                ))}
-                <li role="separator" className="divider" />
-                <li><Link to="#">Different stuff</Link></li>
-                <li role="separator" className="divider" />
-                <li><Link to="#">Stuff stuff</Link></li>
-              </ul>
-            </li>
-          </ul>
+          {/* Product Related Links */}
+          <ProductNav categories={categories} />
 
           {/* Account Related Links */}
-          <ul className="nav navbar-nav navbar-right">
+          <AccountNav user={user} />
 
-            {/* User greeting if they are logged in */}
-            {user
-              ? <ul className="nav navbar-nav">
-                <li><Link>Hello, {user.email}!</Link></li>
-                <li className="dropdown">
-                  <Link
-                    to="#"
-                    className="dropdown-toggle"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-                    Account <span className="caret" />
-                  </Link>
-                  <ul className="dropdown-menu">
-                    <li><Link to="/account">Your Account</Link></li>
-                    <li><Link to="#">Your Orders</Link></li>
-                    <li><Link to="#">Your Wishlist</Link></li>
-                    <li role="separator" className="divider" />
-                    <li><Link to="#" onClick={logout}>Sign Out</Link></li>
-                  </ul>
-                </li>
-              </ul>
-              : <ul className="nav navbar-nav">
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/signup">Sign Up</Link></li>
-              </ul>
-            }
-            <li><Link to="#">Orders</Link></li>
-            <li><Link to="#">Cart</Link></li>
-          </ul>
-
+          {/* Search bar */}
           <Search />
 
         </div>

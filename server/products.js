@@ -7,13 +7,13 @@ module.exports = require('express').Router()
   .get('/',
   (req, res, next) => {
     const whereClause = {}
-    if (req.query) {
-      Object.keys(req.query).map(key => {
-        whereClause[key] = {
-          $ilike: `%${req.query[key]}%`
-        }
-      })
+
+    if (req.query.keywords) {
+      whereClause.name = {
+        $ilike: `%${req.query.keywords}%`
+      }
     }
+
     Product.findAll({
       where: whereClause
     })
