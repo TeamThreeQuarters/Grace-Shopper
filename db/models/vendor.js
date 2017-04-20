@@ -1,6 +1,6 @@
 'use strict'
 
-const { STRING, INTEGER, DECIMAL } = require('sequelize')
+const { STRING } = require('sequelize')
 
 module.exports = db => db.define('shopping_cart_items', {
   name: {
