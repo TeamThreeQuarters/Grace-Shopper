@@ -1,17 +1,16 @@
 import React from 'react'
-import chai, {expect} from 'chai'
+import chai, { expect } from 'chai'
 chai.use(require('chai-enzyme')())
-import {shallow} from 'enzyme'
-import {spy} from 'sinon'
+import { shallow } from 'enzyme'
+import { spy } from 'sinon'
 chai.use(require('sinon-chai'))
-
-import {Login} from './Login'
+import { Login } from './Login'
 
 /* global describe it beforeEach */
 describe('<Login />', () => {
   let root
   beforeEach('render the root', () =>
-    root = shallow(<Login/>)
+    root = shallow(<Login />)
   )
 
   it('shows a login form', () => {
@@ -32,19 +31,20 @@ describe('<Login />', () => {
 
   describe('when submitted', () => {
     const login = spy()
-    const root = shallow(<Login login={login}/>)
+    const root = shallow(<Login login={login} />)
+    const form = root.find('form');
     const submitEvent = {
       preventDefault: spy(),
       target: {
-        username: {value: 'bones@example.com'},
-        password: {value: '12345'},
+        username: { value: 'bones@example.com' },
+        password: { value: '12345' },
       }
     }
 
     beforeEach('submit', () => {
       login.reset()
       submitEvent.preventDefault.reset()
-      root.simulate('submit', submitEvent)
+      form.simulate('submit', submitEvent)
     })
 
     it('calls props.login with credentials', () => {

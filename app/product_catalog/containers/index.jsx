@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
   products: state.products.products
 })
 
-const mapDispatchToProps = dispatch => ({})
+const mapDispatchToProps = () => ({})
 
 const ProductCatalogContainer = connect(mapStateToProps, mapDispatchToProps)(ProductCatalog)
 
