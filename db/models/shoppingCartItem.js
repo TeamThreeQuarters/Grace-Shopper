@@ -19,7 +19,7 @@ module.exports = db => db.define('shopping_cart_items', {
   }
 })
 
-module.exports.associations = (ShoppingCartItem, { User, Inventory}) => {
+module.exports.associations = (ShoppingCartItem, { User, Inventory }) => {
   ShoppingCartItem.belongsTo(User)
   ShoppingCartItem.belongsTo(Inventory)
 }
