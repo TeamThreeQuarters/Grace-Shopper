@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { Link, browserHistory } from 'react-router';
 
 export const Login = props => {
@@ -17,17 +17,17 @@ export const Login = props => {
         <label className="login-item">Password: </label>
         <input className="login-item" name="password" type="password" />
         <input className="login-item" type="submit" value="Submit" />
-        <a href="api/auth/login/google">Sign In with Google</a>
+        <a className="google-signin" href="api/auth/login/google">Sign In with Google</a>
         <button className="signup"><Link to="/signup">Sign Up</Link></button>
       </form>
     </div>
   )
 }
 
-import { login } from 'APP/app/reducers/auth'
+import { login } from 'APP/app/user/action-creators'
 import { connect } from 'react-redux'
 
 export default connect(
   () => ({}),
   { login },
-)(Login)
+)(Login) */

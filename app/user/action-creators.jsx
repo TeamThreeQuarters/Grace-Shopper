@@ -1,20 +1,18 @@
 import axios from 'axios'
+import { browserHistory } from 'react-router'
 
-const reducer = (state = null, action) => {
-  switch (action.type) {
-  case AUTHENTICATED:
-    return action.user
-  }
-  return state
-}
+import {
+  AUTHENTICATED
+} from './constants'
 
-const AUTHENTICATED = 'AUTHENTICATED'
-export const authenticated = user => ({
-  type: AUTHENTICATED, user
+const authenticated = user => ({
+  type: AUTHENTICATED,
+  user
 })
 
 export const login = (username, password) =>
-  dispatch => axios.post('/api/auth/login/local',
+  dispatch =>
+    axios.post('/api/auth/login/local',
       { username, password })
       .then(() => dispatch(whoami()))
       .catch(() => dispatch(whoami()))
@@ -34,4 +32,11 @@ export const whoami = () =>
       })
       .catch(() => dispatch(authenticated(null)))
 
-export default reducer
+export const addUser = user =>
+  dispatch =>
+    axios.post('/api/users', user)
+      .then(newUser => {
+        dispatch(login(newUser.data.email, newUser.data.password))
+        browserHistory.push('/products')
+      })
+      .catch(err => console.error('Could not create new user', err))
