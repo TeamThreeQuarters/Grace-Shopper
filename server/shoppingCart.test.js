@@ -5,7 +5,7 @@ const request = require('supertest')
 
 /* global describe it before afterEach  */
 
-describe('/api/products', () => {
+describe('/api/shoppingCart', () => {
   before('Await database sync', () => db.didSync)
   afterEach('Clear the tables', () => db.truncate({ cascade: true }))
 
@@ -14,7 +14,7 @@ describe('/api/products', () => {
       it('returns an empty array', () =>
         request(app)
           .get('/api/shoppingCart')
-          .expect([])
+          .then(res => expect(res.body).to.have.length(0))
       )
     )
   )

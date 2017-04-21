@@ -18,6 +18,7 @@ module.exports = require('express').Router()
 
   .get('/', (req, res, next) => {
     console.log('/shoppingCart GET')
+    if (!req.shoppingCart) return res.json([])
     req.shoppingCart.getShoppingCartItems()
       .then(shoppingCartItems => res.json(shoppingCartItems))
       .catch(next)
