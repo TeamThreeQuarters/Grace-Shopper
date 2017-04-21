@@ -5,7 +5,6 @@ const { Inventory } = db
 const seed = require('./_seed')
 
 const inventories = seed(Inventory, ({ vendors, products }) => {
-  console.log(vendors)
   return {
     fullStackOmris: {
       vendor_id: vendors.fullstack.id,

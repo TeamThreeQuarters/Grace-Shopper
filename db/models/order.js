@@ -7,7 +7,7 @@ module.exports = db => db.define('orders', {
     type: BOOLEAN,
     defaultValue: false,
     allowNull: false,
-  }
+  },
 })
 
 module.exports.associations = (Order, {OrderItem}) => {
