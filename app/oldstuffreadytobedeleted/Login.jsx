@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { Link, browserHistory } from 'react-router';
 
 export const Login = props => {
@@ -24,10 +24,10 @@ export const Login = props => {
   )
 }
 
-import { login } from 'APP/app/reducers/auth'
+import { login } from 'APP/app/user/action-creators'
 import { connect } from 'react-redux'
 
 export default connect(
   () => ({}),
   { login },
-)(Login)
+)(Login) */

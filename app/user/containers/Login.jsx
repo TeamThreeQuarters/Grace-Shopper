@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { browserHistory } from 'react-router';
 
 import Login from '../components/Login'
-import { login } from 'APP/app/reducers/auth'
+import { login } from '../action-creators'
 
 const mapStateToProps = () => ({})
 

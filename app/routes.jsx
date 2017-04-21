@@ -11,7 +11,6 @@ import ProductCatalog from './product_catalog/containers';
 import SingleProduct from './product_catalog/containers/SingleProduct'
 import Account from './user/containers/Account';
 import Login from './user/containers/Login';
-// import Login from 'APP/app/components/Login'
 import Signup from './user/containers/Signup';
 
 /* Dispatchers */
