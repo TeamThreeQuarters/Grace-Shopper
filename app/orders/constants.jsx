@@ -1,2 +1,1 @@
-// export const READ_ALL_PRODUCTS = 'READ_ALL_PRODUCTS'
-// export const SET_CATEGORIES = 'SET_CATEGORIES'
+export const SET_ORDERS = 'SET_ORDERS'

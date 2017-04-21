@@ -35,7 +35,7 @@ const AccountNav = props => {
           <li><Link to="/signup">Sign Up</Link></li>
         </ul>
       }
-      <li><Link to="#">Orders</Link></li>
+      <li><Link to="/orders">Orders</Link></li>
       <li><Link to="#">Cart</Link></li>
     </ul>
   )

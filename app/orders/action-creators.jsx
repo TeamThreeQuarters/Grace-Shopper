@@ -1,40 +1,27 @@
 'use strict'
 
-// import axios from 'axios'
+import axios from 'axios'
+import store from '../store'
 
-// import {
-//   READ_ALL_PRODUCTS,
-//   SET_CATEGORIES
-// } from './constants'
+import {
+  SET_ORDERS
+} from './constants'
 
 // /* ACTION-CREATORS */
-// const readAllProducts = products => ({
-//   type: READ_ALL_PRODUCTS,
-//   products
-// })
-
-// const setCategories = categories => ({
-//   type: SET_CATEGORIES,
-//   categories,
-// })
+const setOrders = orders => ({
+  type: SET_ORDERS,
+  orders
+})
 
 // /* THUNK DISPATCHERS */
-// export const getProducts = searchQuery => dispatch => {
-//   axios.get('/api/products', { params: searchQuery })
-//     .then(products => dispatch(readAllProducts(products.data)))
-//     .catch(err => console.error('Could not load all products', err))
-// }
+export const getUserOrders = () => dispatch => {
+  let auth = store.getState().auth
+  if (auth) {
+    axios.get(`/api/orders/${auth.id}`)
+      .then(orders => {
+        dispatch(setOrders(orders.data))
+      })
+      .catch(err => console.error('Could not get user orders', err))
+  }
+}
 
-// export const getCategoryProducts = categoryName => dispatch => {
-//   console.log('getCategoryProducts dispatcher')
-//   axios.get(`/api/products/${categoryName}`)
-//     .then(products => dispatch(readAllProducts(products.data)))
-//     .catch(err => console.error('Could not load all products', err))
-// }
-
-// export const getCategories = () => dispatch => {
-//   console.log('getCategories dispatcher')
-//   axios.get('/api/categories')
-//     .then(response => dispatch(setCategories(response.data)))
-//     .catch(err => console.error('Could not load categories', err))
-// }

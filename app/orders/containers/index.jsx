@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 import Orders from '../components'
 
 const mapStateToProps = state => ({
-  // products: state.products.products
+  orders: state.orders.orders,
+  auth: state.auth
 })
 
 const mapDispatchToProps = () => ({})

@@ -3,18 +3,31 @@
 import React from 'react'
 
 const Orders = props => (
-  <div>
+  <div className="container">
+    <h1>
+      Orders:
+    </h1>
     <div>
-      These are all of your orders:
-    </div>
-    {/*<div>
-      {props.products.map(product => (
-        <div key={product.id}>
-          <span><img src={product.images[0]} style={{ width: 200, height: 200 }} /></span>
-          <span>{product.name}</span>
+      {console.log('ORDERS:', props.orders)}
+      {props.orders.map(order => (
+        <div key={order.id}>
+            <h2>Order ID: {order.id}</h2>
+            <p>Order Submitted At: {order.created_at}</p>
+            <p><strong>{order.paidStatus ? 'Order Payment Complete' : 'Order Payment Not Complete'}</strong></p>
+            <h3>Items</h3>
+            {order.orderItems.map(orderItem => (
+              <div className='indent' key={orderItem.id}>
+                <h4>Item ID: {orderItem.id}</h4>
+                <div className='indent-twice'>
+                  <p>Delivery Status: { orderItem.deliveryStatus }</p>
+                  <p>Cost: { orderItem.price }</p>
+                  <p>Quantity: { orderItem.quantity }</p>
+                </div>
+              </div>
+            ))}
         </div>
       ))}
-    </div>*/}
+    </div>
   </div>
 )
 
