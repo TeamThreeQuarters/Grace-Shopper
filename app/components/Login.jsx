@@ -1,24 +1,27 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
-export const Login = ({ login }) => (
-  <div>
-    <h2>Login</h2>
-    <form onSubmit={evt => {
-      evt.preventDefault()
-      login(evt.target.username.value, evt.target.password.value)
-      if (browserHistory) {
-        browserHistory.push('/products');
-      }
-    }}>
-      <label>Email: </label>
-      <input name="username" />
-      <label>Password: </label>
-      <input name="password" type="password" />
-      <input type="submit" value="Submit" />
-    </form>
-  </div>
-)
+export const Login = props => {
+  const login = event => {
+    event.preventDefault()
+    props.login(event.target.username.value, event.target.password.value)
+    if (browserHistory) browserHistory.push('/products')
+  }
+
+  return (
+    <div className="container">
+      <form onSubmit={login} className="login-container">
+        <h2>Login</h2>
+        <label className="login-item">Email: </label>
+        <input className="login-item" name="username" />
+        <label className="login-item">Password: </label>
+        <input className="login-item" name="password" type="password" />
+        <input className="login-item" type="submit" value="Submit" />
+        <button className="signup"><Link to="/signup">Sign Up</Link></button>
+      </form>
+    </div>
+  )
+}
 
 import { login } from 'APP/app/reducers/auth'
 import { connect } from 'react-redux'

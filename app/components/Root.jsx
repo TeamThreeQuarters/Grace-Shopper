@@ -10,6 +10,7 @@ const Root = ({ user, children }) => (
   <div>
     <Navbar user={user} />
     {children}
+    <hr />
     <Footer />
   </div>
 )

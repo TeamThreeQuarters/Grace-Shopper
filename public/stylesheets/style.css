@@ -11,16 +11,23 @@
   width: 200px;
 }
 
-.flex-container {
-  display: -webkit-flex;
+.login-container {
   display: flex;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
+  flex-direction: column;
+  width: 400px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  border-color: lightgray;
+  margin: auto;
+  padding: 20px;
 }
 
-.flex-item {
-  width: 220px;
-  height: 220px;
+.login-item {
+  margin: 10px;
+}
+
+button.signup {
   margin: 10px;
 }
 
