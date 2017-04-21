@@ -27,10 +27,6 @@ describe('/api/shoppingCart', () => {
             .post('/api/shoppingCart')
             .send({quantity: 3, price: 9.99})
             .expect(201)
-            .then(res => {
-              console.log(res.status)
-              console.log(res.body)})
-
         )
       )
     )
