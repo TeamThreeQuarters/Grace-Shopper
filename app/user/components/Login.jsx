@@ -1,12 +1,8 @@
-import React from 'react';
-import { Link, browserHistory } from 'react-router';
+import React from 'react'
+import { Link } from 'react-router'
 
-export const Login = props => {
-  const login = event => {
-    event.preventDefault()
-    props.login(event.target.username.value, event.target.password.value)
-    if (browserHistory) browserHistory.push('/products')
-  }
+const Login = props => {
+  const login = event => props.login(event)
 
   return (
     <div className="container">
@@ -24,10 +20,4 @@ export const Login = props => {
   )
 }
 
-import { login } from 'APP/app/reducers/auth'
-import { connect } from 'react-redux'
-
-export default connect(
-  () => ({}),
-  { login },
-)(Login)
+export default Login

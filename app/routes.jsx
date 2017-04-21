@@ -5,13 +5,14 @@ import { connect } from 'react-redux';
 /* CONTAINERS */
 import Root from './components/Root';
 import Jokes from './components/Jokes';
-import Login from './components/Login';
 import NotFound from './components/NotFound';
 
 import ProductCatalog from './product_catalog/containers';
 import SingleProduct from './product_catalog/containers/SingleProduct'
-import Signup from './signup/containers';
-import Account from './user/account/containers';
+import Account from './user/containers/Account';
+import Login from './user/containers/Login';
+// import Login from 'APP/app/components/Login'
+import Signup from './user/containers/Signup';
 
 /* Dispatchers */
 import { getProduct, getProducts, getCategories, getCategoryProducts } from './product_catalog/action-creators'

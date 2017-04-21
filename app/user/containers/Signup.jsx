@@ -1,7 +1,7 @@
 'use strict'
 
 import { connect } from 'react-redux';
-import Signup from '../components';
+import Signup from '../components/Signup';
 import { login } from 'APP/app/reducers/auth';
 
 const mapStateToProps = () => ({});
