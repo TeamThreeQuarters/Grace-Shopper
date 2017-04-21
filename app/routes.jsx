@@ -11,6 +11,7 @@ import NotFound from './components/NotFound';
 import ProductCatalog from './product_catalog/containers';
 import Signup from './signup/containers';
 import Account from './user/account/containers';
+import Orders from './orders/containers'
 
 /* Dispatchers */
 import { getProducts, getCategories, getCategoryProducts } from './product_catalog/action-creators'
@@ -28,6 +29,7 @@ const RoutesComponent = (props) => (
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
       <Route path="/account" component={Account} />
+      <Route path="/orders" component={Orders} />
     </Route>
     <Route path="*" component={NotFound} />
   </Router>
