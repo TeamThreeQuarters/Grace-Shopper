@@ -7,6 +7,7 @@ chai.use(require('sinon-chai'))
 import Login from './components/Login'
 
 /* global describe it beforeEach */
+
 describe('<Login />', () => {
   let root
   beforeEach('render the root', () =>
@@ -49,13 +50,8 @@ describe('<Login />', () => {
 
     it('calls props.login with credentials', () => {
       expect(login).to.have.been.calledWith(
-        submitEvent.target.username.value,
-        submitEvent.target.password.value,
+        submitEvent
       )
-    })
-
-    it('calls preventDefault', () => {
-      expect(submitEvent.preventDefault).to.have.been.called
     })
   })
 })

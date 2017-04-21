@@ -2,12 +2,13 @@
 
 import { connect } from 'react-redux';
 import Signup from '../components/Signup';
-import { login, addUser } from '../action-creators';
+import { addUser } from '../action-creators';
 
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({
+  user: state.auth
+});
 
 const mapDispatchToProps = dispatch => ({
-  login: (name, password) => dispatch(login(name, password)),
   signup: event => {
     event.preventDefault()
     const email = event.target.email.value
