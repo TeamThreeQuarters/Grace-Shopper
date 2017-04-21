@@ -23,14 +23,14 @@ export default ({ login }) => {
   }
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={createUserAndLogin}>
-        <label>Email:</label>
-        <input name="email" />
-        <label>Password:</label>
-        <input name="password" type="password" />
-        <input type="submit" value="Submit" />
+    <div className="container">
+      <form className="login-container" onSubmit={createUserAndLogin}>
+        <h2>Sign Up</h2>
+        <label className="login-item">Email:</label>
+        <input className="login-item" name="email" />
+        <label className="login-item">Password:</label>
+        <input className="login-item" name="password" type="password" />
+        <input className="login-item" type="submit" value="Submit" />
       </form>
     </div>
   );
