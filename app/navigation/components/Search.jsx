@@ -10,11 +10,11 @@ const Search = props => {
       <div className="form-group">
         <div className="input-group">
           <input
-          type="text"
-          className="form-control"
-          placeholder="Search"
-          value={searchQuery}
-          onChange={searchChange} />
+            type="text"
+            className="form-control"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={searchChange} />
           <span className="input-group-btn">
             <button type="submit" className="btn">
               <span className="glyphicon glyphicon-search" />

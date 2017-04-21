@@ -36,6 +36,12 @@ describe('/api/products', () => {
         Product.bulkCreate(sampleProducts)
       )
 
+      it('returns a single product when given an id', () =>
+        request(app)
+          .get(`/api/products/product/1`)
+          .then(res => expect(res.body).to.include({ name: sampleProducts[0].name }))
+      )
+
       it('returns an array', () =>
         request(app)
           .get(`/api/products`)

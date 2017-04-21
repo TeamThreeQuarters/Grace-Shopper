@@ -8,6 +8,7 @@ import Search from '../containers/Search'
 const Navbar = props => {
   const categories = props.categories
   const user = props.user;
+  const removeSearchQuery = props.removeSearchQuery
 
   return (
     <div className="navbar navbar-default">
@@ -26,7 +27,7 @@ const Navbar = props => {
             <span className="icon-bar" />
             <span className="icon-bar" />
           </button>
-          <Link to="/" className="navbar-brand">Grace Shopper</Link>
+          <Link to="/" className="navbar-brand" onClick={removeSearchQuery}>Grace Shopper</Link>
         </div>
 
         {/* Collect the nav links, forms, and other content for toggling */}

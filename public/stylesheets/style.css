@@ -1,0 +1,29 @@
+.navbar-form .form-group {
+  display: inline;
+}
+
+.navbar-form .form-group .input-group .input-group-btn {
+  width: 1%;
+}
+
+.product-image {
+  height: 200px;
+  width: 200px;
+}
+
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  width: 220px;
+  height: 220px;
+  margin: 10px;
+}
+
+.footer {
+  margin: 20px;
+}

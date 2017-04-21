@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 
 import Search from '../components/Search'
-import { getProducts } from 'APP/app/product_catalog/action-creators'
 import { setSearchQuery } from 'APP/app/navigation/action-creators'
 
 const SearchLocalContainer = class extends React.Component {
@@ -27,7 +26,6 @@ const SearchLocalContainer = class extends React.Component {
   searchSubmit(event) {
     event.preventDefault()
     browserHistory.push(`/products/search?keywords=${this.state.searchQuery}`)
-    this.props.getProducts({ keywords: this.state.searchQuery })
     this.props.setSearchQuery(this.state.searchQuery)
   }
 
@@ -46,7 +44,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getProducts: searchQuery => dispatch(getProducts(searchQuery)),
   setSearchQuery: searchQuery => dispatch(setSearchQuery(searchQuery))
 })
 

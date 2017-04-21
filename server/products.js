@@ -4,6 +4,13 @@ const db = require('APP/db')
 const { Product, Category } = db
 
 module.exports = require('express').Router()
+  .get('/product/:id',
+  (req, res, next) =>
+    Product.findById(req.params.id)
+      .then(product => res.json(product))
+      .catch(next)
+  )
+
   .get('/',
   (req, res, next) => {
     const whereClause = {}
@@ -38,9 +45,3 @@ module.exports = require('express').Router()
       .then(products => res.json(products))
       .catch(next)
   })
-
-  .get('/:id',
-  (req, res, next) =>
-    Product.findById(req.params.id)
-      .then(product => res.json(product))
-      .catch(next))
