@@ -2,7 +2,7 @@
 
 const { STRING } = require('sequelize')
 
-module.exports = db => db.define('categories', {
+module.exports = db => db.define('vendor', {
   name: {
     type: STRING,
     allowNull: false,
@@ -11,7 +11,3 @@ module.exports = db => db.define('categories', {
     }
   }
 })
-
-module.exports.associations = (Category, { Product }) => {
-  Category.hasMany(Product)
-}

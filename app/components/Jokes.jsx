@@ -12,14 +12,14 @@ export default class BonesJokes extends Component {
     })
 
   answer = () =>
-    this.setState({answered: true})
+    this.setState({ answered: true })
 
   render() {
     if (!this.state) { return null }
 
-    const {joke, answered} = this.state
+    const { joke, answered } = this.state
     return (
-      <div onClick={answered ? this.nextJoke : this.answer}>
+      <div onClick={answered ? this.nextJoke : this.answer} className="container">
         <h1>{joke.q}</h1>
         {answered && <h2>{joke.a}</h2>}
         <cite>~xoxo, bones</cite>
@@ -149,6 +149,6 @@ A: Tickle his funny bone!`
   .split('\n')
   .reduce((all, row, i) =>
     i % 2 === 0
-    ? [...all, {q: row}]
-    : [...all.slice(0, all.length - 1), Object.assign({a: row}, all[all.length - 1])],
-    [])
+      ? [...all, { q: row }]
+      : [...all.slice(0, all.length - 1), Object.assign({ a: row }, all[all.length - 1])],
+  [])
