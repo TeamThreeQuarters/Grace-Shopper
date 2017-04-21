@@ -23,7 +23,7 @@ const AccountNav = props => {
             </Link>
             <ul className="dropdown-menu">
               <li><Link to="/account">Your Account</Link></li>
-              <li><Link to="#">Your Orders</Link></li>
+              <li><Link to="/orders">Your Orders</Link></li>
               <li><Link to="#">Your Wishlist</Link></li>
               <li role="separator" className="divider" />
               <li><Link to="#" onClick={logout}>Sign Out</Link></li>
@@ -35,7 +35,6 @@ const AccountNav = props => {
           <li><Link to="/signup">Sign Up</Link></li>
         </ul>
       }
-      <li><Link to="/orders">Orders</Link></li>
       <li><Link to="#">Cart</Link></li>
     </ul>
   )

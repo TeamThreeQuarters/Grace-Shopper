@@ -33,7 +33,6 @@ const RoutesComponent = (props) => (
         props.getCategoryProducts(nextProps.params.category)
       }} />
       <Route path="/product/:productName/:productId" component={SingleProduct} onEnter={nextProps => {
-        console.log('NEXTPROPS: ', nextProps)
         props.getSelectedProduct(nextProps.params.productId)
       }} />
       <Route path="/signup" component={Signup} />

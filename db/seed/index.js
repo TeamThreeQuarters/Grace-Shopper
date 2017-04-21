@@ -25,9 +25,9 @@ function seedEverything() {
   }
   seeded.users = users(seeded)
   seeded.products = products(seeded)
-  seeded.inventories = inventories(seeded)
   seeded.orders = orders(seeded)
   seeded.orderItems = orderItems(seeded)
+  seeded.inventories = inventories(seeded)
 
 
   return Promise.props(seeded)
