@@ -10,6 +10,6 @@ module.exports = db => db.define('orders', {
   },
 })
 
-module.exports.associations = (Order, {OrderItem}) => {
+module.exports.associations = (Order, { OrderItem }) => {
   Order.hasMany(OrderItem)
 }

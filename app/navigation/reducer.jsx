@@ -13,16 +13,16 @@ const navigationReducer = (state = initialState, action) => {
   const newState = Object.assign({}, state)
 
   switch (action.type) {
-  case UPDATE_SEARCH_QUERY:
-    newState.searchQuery = action.searchQuery
-    break
+    case UPDATE_SEARCH_QUERY:
+      newState.searchQuery = action.searchQuery
+      break
 
-  case DELETE_SEARCH_QUERY:
-    newState.searchQuery = ''
-    break
+    case DELETE_SEARCH_QUERY:
+      newState.searchQuery = ''
+      break
 
-  default:
-    return state
+    default:
+      return state
   }
 
   return newState

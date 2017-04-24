@@ -2,7 +2,7 @@
 
 import axios from 'axios'
 
-import { ADD_ITEM, UPDATE_QUANTITY,REMOVE_ITEM } from './constants'
+import { ADD_ITEM, UPDATE_QUANTITY, REMOVE_ITEM } from './constants'
 
 // ACTION CREATORS
 export const addItem = item => ({
@@ -30,7 +30,7 @@ export const addToShoppingCart = product => dispatch => {
 }
 
 export const updateShoppingCartItemQuantity = (shoppingCartItemId, quantity) => dispatch => {
-  axios.patch(`/api/shoppingCart/${shoppingCartItemId}`, {quantity: quantity})
+  axios.patch(`/api/shoppingCart/${shoppingCartItemId}`, { quantity: quantity })
     .then(() => dispatch(updateQuantity(shoppingCartItemId, quantity)))
     .catch(err => console.error('Error updating quantity', err))
 }

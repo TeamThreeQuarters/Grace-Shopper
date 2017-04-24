@@ -4,11 +4,11 @@ import {
 
 const userReducer = (state = null, action) => {
   switch (action.type) {
-  case AUTHENTICATED:
-    return action.user
+    case AUTHENTICATED:
+      return action.user
 
-  default:
-    return state
+    default:
+      return state
   }
 }
 

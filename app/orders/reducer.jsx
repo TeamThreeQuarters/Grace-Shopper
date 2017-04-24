@@ -12,18 +12,15 @@ const ordersReducer = (state = initialState, action) => {
   const newState = Object.assign({}, state)
 
   switch (action.type) {
-  case SET_ORDERS:
-    newState.orders = action.orders
-    break
+    case SET_ORDERS:
+      newState.orders = action.orders
+      break
 
-  default:
-    return state
+    default:
+      return state
   }
 
   return newState
 }
 
 export default ordersReducer
-
-
-

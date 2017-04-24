@@ -23,4 +23,3 @@ module.exports.associations = (ShoppingCartItem, { ShoppingCart, Inventory }) =>
   ShoppingCartItem.belongsTo(ShoppingCart)
   ShoppingCartItem.belongsTo(Inventory)
 }
-
