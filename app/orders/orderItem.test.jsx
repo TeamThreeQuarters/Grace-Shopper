@@ -8,7 +8,7 @@ import OrderItem from './components/orderItem'
 import sampleOrders from './sampleOrders.test.data'
 
 /* global describe it beforeEach */
-describe.only('<OrderItem />', () => {
+describe('<OrderItem />', () => {
   let root
   let product
   beforeEach('render the root', () => {
