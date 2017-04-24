@@ -4,7 +4,7 @@ import rootReducer from './reducer'
 import createLogger from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 
-import { whoami } from './reducers/auth'
+import { whoami } from './user/action-creators'
 
 const store = createStore(
   rootReducer,

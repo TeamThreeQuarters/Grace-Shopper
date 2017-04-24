@@ -1,0 +1,49 @@
+.navbar-form .form-group {
+  display: inline;
+}
+
+.navbar-form .form-group .input-group .input-group-btn {
+  width: 1%;
+}
+
+.product-image {
+  height: 200px;
+  width: 200px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  border-color: lightgray;
+  margin: auto;
+  padding: 20px;
+}
+
+.login-item {
+  margin: 10px;
+}
+
+.google-signin {
+  text-align: center;
+  margin: 10px;
+}
+
+button.signup {
+  margin: 10px;
+}
+
+.footer {
+  margin: 20px;
+}
+
+.indent {
+  text-indent: 50px;
+}
+
+.indent-twice {
+  text-indent: 100px;
+}

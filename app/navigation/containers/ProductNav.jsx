@@ -1,10 +1,13 @@
 import { connect } from 'react-redux'
 
 import ProductNav from '../components/ProductNav'
+import { removeSearchQuery } from '../action-creators'
 
 const mapStateToProps = () => ({})
 
-const mapDispatchToProps = () => ({})
+const mapDispatchToProps = dispatch => ({
+  removeSearchQuery: () => dispatch(removeSearchQuery())
+})
 
 const ProductNavContainer = connect(mapStateToProps, mapDispatchToProps)(ProductNav)
 

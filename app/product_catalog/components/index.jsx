@@ -1,17 +1,23 @@
 'use strict'
 
 import React from 'react'
+import { Link } from 'react-router'
 
 const ProductCatalog = props => (
-  <div>
+  <div className="container">
     <div>
-      These are all of our products:
+      Products:
     </div>
     <div>
       {props.products.map(product => (
         <div key={product.id}>
-          <span><img src={product.images[0]} style={{ width: 200, height: 200 }} /></span>
-          <span>{product.name}</span>
+          <Link to={`/product/${product.name}/${product.id}`}>
+            <span>
+              <img src={product.images[0]} className="product-image" />
+            </span>
+            <span> {product.name} : {product.description} </span>
+          </Link>
+          <hr />
         </div>
       ))}
     </div>

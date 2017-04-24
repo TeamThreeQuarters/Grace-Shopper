@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
 
 import Navbar from '../components'
-import { logout } from 'APP/app/reducers/auth'
+import { logout } from 'APP/app/user/action-creators'
+import { removeSearchQuery } from '../action-creators'
 
 const mapStateToProps = state => ({
   products: state.products.products,
@@ -9,7 +10,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  removeSearchQuery: () => dispatch(removeSearchQuery())
 })
 
 const NavbarContainer = connect(mapStateToProps, mapDispatchToProps)(Navbar)

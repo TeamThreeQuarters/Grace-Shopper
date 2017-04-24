@@ -23,3 +23,4 @@ module.exports.associations = (Inventory, { Vendor, Product }) => {
   Inventory.belongsTo(Vendor)
   Inventory.belongsTo(Product)
 }
+
