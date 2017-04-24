@@ -31,7 +31,6 @@ module.exports = require('express').Router()
         req.session.shoppingCartId = shoppingCart.id
         return shoppingCart.createShopping_cart_item({
           quantity: req.body.quantity,
-          price: req.body.price
         })
       })
       .then(() => res.sendStatus(201))

@@ -1,6 +1,6 @@
 'use strict'
 
-const { INTEGER, DECIMAL } = require('sequelize')
+const { INTEGER } = require('sequelize')
 
 module.exports = db => db.define('shopping_cart_items', {
   quantity: {
@@ -8,13 +8,6 @@ module.exports = db => db.define('shopping_cart_items', {
     allowNull: false,
     validate: {
       min: 1
-    }
-  },
-  price: {
-    type: DECIMAL,
-    allowNull: false,
-    validate: {
-      min: 0
     }
   }
 })
