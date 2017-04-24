@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('APP/db')
-const { Order, User, OrderItem, Inventory } = db
+const { Order, User, OrderItem, Inventory, Product, Vendor } = db
 const { mustBeLoggedIn } = require('./auth.filters')
 
 module.exports = require('express').Router()
@@ -10,7 +10,11 @@ module.exports = require('express').Router()
   (req, res, next) =>
     User.findById(req.params.id)
       .then(user => user.getOrders({
-        include: [{model: OrderItem, include: Inventory}]
+        include: [
+          {model: OrderItem, include: [{
+            model: Inventory, include: [
+              Product, Vendor]}
+          ]}]
       }))
       .then(orders => res.json(orders))
       .catch(next))
@@ -20,6 +24,14 @@ module.exports = require('express').Router()
       .then(order => res.status(201).json(order))
       .catch(next))
 
+// User.findAll({
+//   include: [
+//     {model: Tool, as: 'Instruments', include: [
+//       {model: Teacher, include: [ /* etc */]}
+//     ]}
+//   ]
+// }).then(function(users) {
+//   console.log(JSON.stringify(users))
 
 
 
