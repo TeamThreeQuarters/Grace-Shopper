@@ -30,8 +30,7 @@ module.exports = require('express').Router()
       .spread((shoppingCart) => {
         req.session.shoppingCartId = shoppingCart.id
         shoppingCart.createShopping_cart_item({
-          quantity: req.body.quantity,
-          price: req.body.price
+          quantity: req.body.quantity
         })
       })
       .then(res.sendStatus(201))

@@ -10,6 +10,11 @@ const Navbar = props => {
   const user = props.user;
   const removeSearchQuery = props.removeSearchQuery
 
+  const style = {
+    maxWidth: 210,
+    marginTop: -18
+  }
+
   return (
     <div className="navbar navbar-default">
       <div className="container-fluid">
@@ -27,7 +32,9 @@ const Navbar = props => {
             <span className="icon-bar" />
             <span className="icon-bar" />
           </button>
-          <Link to="/" className="navbar-brand" onClick={removeSearchQuery}>Fullstack Marketplace</Link>
+          <Link to="/" className="navbar-brand" onClick={removeSearchQuery} title="Fullstack  Marketplace">
+            <img src="/images/navbar_logo.png" style={style}/>
+          </Link>
         </div>
 
         {/* Collect the nav links, forms, and other content for toggling */}
