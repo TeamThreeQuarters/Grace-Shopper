@@ -1,3 +1,5 @@
+// OB/SBW: this whole folder should apparently be deleted, keep master clean!
+
 /* import React from 'react';
 import { Link, browserHistory } from 'react-router';
 

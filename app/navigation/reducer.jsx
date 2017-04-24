@@ -9,6 +9,7 @@ const initialState = {
   searchQuery: ''
 }
 
+// OB/SBW: check out immutable js, not too difficult to integrate
 const navigationReducer = (state = initialState, action) => {
   const newState = Object.assign({}, state)
 

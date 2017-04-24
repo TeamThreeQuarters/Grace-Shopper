@@ -35,9 +35,9 @@ export const whoami = () =>
       })
       .catch(() => dispatch(authenticated(null)))
 
-export const addUser = user =>
+export const addUser = user => // OB/SBW: this is actually signup?
   dispatch =>
-    axios.post('/api/users', user)
+    axios.post('/api/users', user) // OB/SBW: if so should probably be /api/auth/signup
       .then(newUser => {
         dispatch(login(newUser.data.email, newUser.data.password))
         browserHistory.push('/products')

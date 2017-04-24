@@ -22,9 +22,10 @@ import { setSearchQuery } from './navigation/action-creators'
 /* ROUTES COMPONENT */
 const RoutesComponent = (props) => (
   <Router history={browserHistory}>
-    <Route path="/" component={Root} onEnter={props.loadCategories}>
+    <Route path="/" component={Root} onEnter={props.loadCategories}> {/* OB/SBW: this will happen for every view state change */}
       <IndexRedirect to="/jokes" />
       <Route path="/jokes" component={Jokes} />
+      {/* OB/SBW: consider squashing into one Route */}
       <Route path="/products" component={ProductCatalog} onEnter={props.getAllProducts} />
       <Route path="/products/search" component={ProductCatalog} onEnter={nextProps => {
         props.getSearchProducts(nextProps.location.query.keywords)
@@ -32,6 +33,7 @@ const RoutesComponent = (props) => (
       <Route path="/products/:category" component={ProductCatalog} onEnter={nextProps => {
         props.getCategoryProducts(nextProps.params.category)
       }} />
+      {/* OB/SBW: missing s */}
       <Route path="/product/:productName/:productId" component={SingleProduct} onEnter={nextProps => {
         props.getSelectedProduct(nextProps.params.productId)
       }} />
@@ -47,6 +49,7 @@ const RoutesComponent = (props) => (
 /* ROUTES CONTAINER */
 const mapStateToProps = () => ({})
 
+// OB/SBW: can use abbreviated "object" syntax for mapDispatch if you want
 const mapDispatchToProps = dispatch => ({
   loadCategories: () => dispatch(getCategories()),
   getSelectedProduct: productId => dispatch(getProduct(productId)),

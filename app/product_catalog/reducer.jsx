@@ -7,7 +7,7 @@ import {
 } from './constants'
 
 const initialState = {
-  products: [],
+  products: [], // OB/SBW: consider renaming to `all` or something (so that it's not products.products)
   product: {},
   categories: []
 }

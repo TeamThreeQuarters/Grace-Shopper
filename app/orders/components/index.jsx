@@ -3,14 +3,17 @@
 import React from 'react'
 import { Link } from 'react-router'
 
+// OB/SBW: consider splitting this up into more files
+
 const Orders = props => {
   const orders = props.orders;
   return (
     <div className="container">
       <div>
-        {console.log('ORDERS:', orders)}
+        {console.log('ORDERS:', orders)} {/* OB/SBW: dead code */}
         {orders.map(order => (
           <div key={order.id}>
+              {/* OB/SBW: incosistent indentation */}
               <h2>Order ID: {order.id}</h2>
               <p>Order Submitted At: {order.created_at}</p>
               <p><strong>{order.paidStatus ? 'Order Payment Complete' : 'Order Payment Not Complete'}</strong></p>

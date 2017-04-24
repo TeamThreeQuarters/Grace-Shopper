@@ -12,7 +12,7 @@ const shoppingCartReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case ADD_ITEM:
-      newState.items[action.item.id] = action.item
+      newState.items[action.item.id] = action.item // OB/SBW: this looks mutative (http://cdn2us.denofgeek.com/sites/denofgeekus/files/ninjaturtles.jpg)
       break
 
     case REMOVE_ITEM:

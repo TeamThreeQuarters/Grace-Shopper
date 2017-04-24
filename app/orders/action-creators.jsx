@@ -13,6 +13,7 @@ const setOrders = orders => ({
   orders
 })
 
+// OB/SBW: recommend using `(dispatch, getState) => blahblahblah` instead of importing store and doing `store.getState()`
 // /* THUNK DISPATCHERS */
 export const getUserOrders = () => dispatch => {
   let auth = store.getState().auth
@@ -21,7 +22,7 @@ export const getUserOrders = () => dispatch => {
       .then(orders => {
         dispatch(setOrders(orders.data))
       })
-      .catch(err => console.error('Could not get user orders', err))
+      .catch(err => console.error('Could not get user orders', err)) // OB/SBW: try out react-toastr
   }
 }
 

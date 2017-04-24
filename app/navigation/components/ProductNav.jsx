@@ -23,7 +23,7 @@ const ProductNav = props => {
           <li role="separator" className="divider" />
           {categories.map(category => (
             <li key={category}>
-              <Link to={`/products/${category}`} onClick={removeSearchQuery}>
+              <Link to={`/products/${category}`} onClick={removeSearchQuery}> {/* OB/SBW: consider category as query string */}
                 {category}
               </Link>
             </li>
