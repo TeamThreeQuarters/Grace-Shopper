@@ -21,6 +21,4 @@ const inventories = seed(Inventory, ({ vendors, products }) => {
   }
 })
 
-
-
 module.exports = inventories
