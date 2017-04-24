@@ -20,3 +20,7 @@ module.exports = db => db.define('products', {
     defaultValue: []
   }
 })
+
+module.exports.associations = (Product, { Inventory }) => {
+  Product.hasMany(Inventory)
+}

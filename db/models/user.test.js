@@ -1,8 +1,8 @@
 'use strict'
 
 const db = require('APP/db')
-    , {User, Order} = db
-    , {expect} = require('chai')
+  , { User, Order } = db
+  , { expect } = require('chai')
 
 /* global describe it before afterEach */
 
@@ -27,11 +27,11 @@ describe('User', () => {
       User.create({
         password: 'ok',
         orders: [
-          { paidStatus: false},
-          { paidStatus: true},
+          { paidStatus: false },
+          { paidStatus: true },
         ]
       }, {
-        include: [ Order ]
+        include: [Order]
       })
         .then(user => user.getOrders())
         .then(orders => {

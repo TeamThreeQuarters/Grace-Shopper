@@ -15,7 +15,7 @@ const setOrders = orders => ({
 
 // /* THUNK DISPATCHERS */
 export const getUserOrders = () => dispatch => {
-  let auth = store.getState().auth
+  const auth = store.getState().auth
   if (auth) {
     axios.get(`/api/orders/${auth.id}`)
       .then(orders => {
@@ -24,4 +24,3 @@ export const getUserOrders = () => dispatch => {
       .catch(err => console.error('Could not get user orders', err))
   }
 }
-
