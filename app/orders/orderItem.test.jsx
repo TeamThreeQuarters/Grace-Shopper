@@ -48,11 +48,12 @@ describe.only('<OrderItem />', () => {
   })
 
   it('Has a link to the product', () => {
-    expect(root.find('Link')).to.have.length(1);
+    expect(root.find('Link[to]')).to.have.length(1);
   })
 
   it('Has an image of the product', () => {
     expect(root.find('img')).to.have.length(1);
+    expect(root.find('img')).to.have.attr('src').equals(product.images[0]);
   })
 
 //   it('Has a paragraph with item price', () => {
