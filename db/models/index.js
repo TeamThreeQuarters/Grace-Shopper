@@ -21,6 +21,8 @@ const app = require('APP')
     Vendor: require('./vendor'),
     Category: require('./category'),
     Product: require('./product'),
+    Order: require('./order'),
+    OrderItem: require('./orderItem'),
     Inventory: require('./inventory'),
     ShoppingCart: require('./shoppingCart'),
     ShoppingCartItem: require('./shoppingCartItem')
