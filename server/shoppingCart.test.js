@@ -24,7 +24,7 @@ describe('/api/shoppingCart', () => {
         it('creates shopping cart', () =>
           request(app)
             .post('/api/shoppingCart/items')
-            .send({ quantity: 3, price: 9.99 })
+            .send({quantity: 3})
             .expect(201)
         )
       )
