@@ -5,18 +5,16 @@ const { Category } = db
 const seed = require('./_seed')
 
 const categories = seed(Category, {
-  instructor: {
-    name: 'Instructor'
+  officeHours: {
+    name: 'Office Hours'
   },
-  staff: {
-    name: 'Staff'
+  extraTime: {
+    name: 'Extra Time'
   },
-  fellow: {
-    name: 'Fellow'
-  },
-  student: {
-    name: 'Student'
+  apparel: {
+    name: 'Apparel'
   }
+
 })
 
 module.exports = categories
