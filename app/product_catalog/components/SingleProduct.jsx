@@ -5,8 +5,9 @@ const SingleProduct = props => (
     <span>
       <img src={props.product.images} className="product-image" />
     </span>
+    <h3>{props.product.name}</h3>
     <span>
-      {props.product.name} : {props.product.description}
+       {props.product.description}
     </span>
   </div>
 )
