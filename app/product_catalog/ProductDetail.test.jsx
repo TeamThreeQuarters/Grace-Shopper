@@ -25,7 +25,7 @@ describe('<ProductDetail />', () => {
   )
 
   it('shows only the selected product', () => {
-    const item = root.find('div[className="product-item"]')
+    const item = root.find('div[className="product_detail"]')
     expect(item).to.have.length(1)
   })
 
