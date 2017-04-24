@@ -27,7 +27,7 @@ describe('/api/products', () => {
       it('returns an empty array', () =>
         request(app)
           .get(`/api/products`)
-          .expect([])
+          .then(res => expect(res.body).to.have.length(0))
       )
     ),
 

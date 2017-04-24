@@ -1,10 +1,7 @@
 'use strict'
 
-const { DECIMAL } = require('sequelize')
-
 module.exports = db => db.define('shopping_cart', {})
 
-module.exports.associations = (ShoppingCart, { User, ShoppingCartItem }) => {
-  ShoppingCart.belongsTo(User)
+module.exports.associations = (ShoppingCart, { ShoppingCartItem }) => {
   ShoppingCart.hasMany(ShoppingCartItem)
 }

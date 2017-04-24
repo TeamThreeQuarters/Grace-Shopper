@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import Navbar from '../components'
-import { logout } from 'APP/app/reducers/auth'
+import { logout } from 'APP/app/user/action-creators'
 import { removeSearchQuery } from '../action-creators'
 
 const mapStateToProps = state => ({
