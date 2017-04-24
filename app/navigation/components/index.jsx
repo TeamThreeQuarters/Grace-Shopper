@@ -32,7 +32,7 @@ const Navbar = props => {
             <span className="icon-bar" />
             <span className="icon-bar" />
           </button>
-          <Link to="/" className="navbar-brand" onClick={removeSearchQuery} title="Fullstack  Marketplace">
+          <Link to="/products" className="navbar-brand" onClick={removeSearchQuery} title="Fullstack  Marketplace">
             <img src="/images/navbar_logo.png" style={style}/>
           </Link>
         </div>
