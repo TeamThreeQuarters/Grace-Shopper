@@ -7,9 +7,9 @@ const Order = props => {
   const order = props.order;
   return (
     <div>
-        <h2>Order ID: {order.id}</h2>
-        <p>Order Submitted At: {order.created_at}</p>
-        <p><strong>{order.paidStatus ? 'Order Payment Complete' : 'Order Payment Not Complete'}</strong></p>
+        <h2 className="id-header">Order ID: {order.id}</h2>
+        <p className="creation-date">Order Submitted At: {order.created_at}</p>
+        <p className="payment-status"><strong>{order.paidStatus ? 'Order Payment Complete' : 'Order Payment Not Complete'}</strong></p>
         <hr/>
         {order.orderItems.map((orderItem, index, array) => {
           const inventory = orderItem.inventory;
