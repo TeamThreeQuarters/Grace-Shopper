@@ -39,3 +39,11 @@ button.signup {
 .footer {
   margin: 20px;
 }
+
+.indent {
+  text-indent: 50px;
+}
+
+.indent-twice {
+  text-indent: 100px;
+}
