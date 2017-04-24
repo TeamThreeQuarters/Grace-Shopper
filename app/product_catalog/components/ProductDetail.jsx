@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SingleProduct = props => {
+const ProductDetail = props => {
   const product = props.product
 
   return (
@@ -20,4 +20,4 @@ const SingleProduct = props => {
   )
 }
 
-export default SingleProduct
+export default ProductDetail

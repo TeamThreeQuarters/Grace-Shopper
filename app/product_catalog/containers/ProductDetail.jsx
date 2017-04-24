@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import SingleProduct from '../components/SingleProduct'
+import ProductDetail from '../components/ProductDetail'
 
 const mapStateToProps = state => ({
   product: state.products.product
@@ -8,6 +8,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = () => ({})
 
-const SingleProductContainer = connect(mapStateToProps, mapDispatchToProps)(SingleProduct)
+const SingleProductContainer = connect(mapStateToProps, mapDispatchToProps)(ProductDetail)
 
 export default SingleProductContainer

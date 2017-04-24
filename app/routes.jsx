@@ -8,7 +8,7 @@ import Jokes from './components/Jokes';
 import NotFound from './components/NotFound';
 
 import ProductCatalog from './product_catalog/containers';
-import SingleProduct from './product_catalog/containers/SingleProduct'
+import ProductDetail from './product_catalog/containers/ProductDetail'
 import Orders from './orders/containers'
 import Account from './user/containers/Account';
 import Login from './user/containers/Login';
@@ -32,7 +32,7 @@ const RoutesComponent = (props) => (
       <Route path="/products/:category" component={ProductCatalog} onEnter={nextProps => {
         props.getCategoryProducts(nextProps.params.category)
       }} />
-      <Route path="/product/:productName/:productId" component={SingleProduct} onEnter={nextProps => {
+      <Route path="/product/:productName/:productId" component={ProductDetail} onEnter={nextProps => {
         props.getSelectedProduct(nextProps.params.productId)
       }} />
       <Route path="/signup" component={Signup} />
