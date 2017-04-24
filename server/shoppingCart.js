@@ -29,11 +29,11 @@ module.exports = require('express').Router()
     })
       .spread((shoppingCart) => {
         req.session.shoppingCartId = shoppingCart.id
-        shoppingCart.createShopping_cart_item({
+        shoppingCart.createShopping_cart_item({ // OB/SBW: not returning this promise
           quantity: req.body.quantity,
-          price: req.body.price
+          price: req.body.price // OB/SBW: watch out
         })
       })
-      .then(res.sendStatus(201))
+      .then(res.sendStatus(201)) // OB/SBW: does not actually wait for the shopping cart to be saved, you want to pass a FUNCTION to `.then`
       .catch(next)
   })

@@ -8,6 +8,7 @@ const AccountNav = props => {
   return (
     <ul className="nav navbar-nav navbar-right">
       {/* User greeting if they are logged in */}
+      {/* OB/SBW: consider splitting up this ternary into smaller pieces */}
       {user
         ? <ul className="nav navbar-nav">
           <li><Link>Hello, {user.email}!</Link></li>

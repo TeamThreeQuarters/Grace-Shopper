@@ -32,11 +32,12 @@ export const getProduct = productId => dispatch =>
 
 export const getProducts = searchQuery => dispatch =>
   axios.get('/api/products', { params: searchQuery })
+    // OB/SBW: this variable is more accurately "response"
     .then(products => dispatch(setProducts(products.data)))
     .catch(err => console.error('Could not load all products', err))
 
 export const getCategoryProducts = categoryName => dispatch =>
-  axios.get(`/api/products/${categoryName}`)
+  axios.get(`/api/products/${categoryName}`) // OB/SBW: consider shifting this to query string
     .then(products => dispatch(setProducts(products.data)))
     .catch(err => console.error('Could not load all products', err))
 

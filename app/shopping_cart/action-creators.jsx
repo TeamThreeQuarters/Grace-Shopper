@@ -23,8 +23,9 @@ export const removeItem = itemId => ({
 
 /* THUNK DISPATCHERS */
 
+// OB/SBW: consider squashing this away, so your frontend only ever makes one request for adding or updating quantity
 export const addToShoppingCart = product => dispatch => {
-  axios.post('/api/shoppingCart', product)
+  axios.post('/api/shoppingCart', product) // OB/SBW: maybe URL should be '/api/shoppingCart/items' to specify resource well
     .then((shoppingCartItem) => dispatch(addItem(shoppingCartItem)))
     .catch(err => console.error('Error adding item to shopping cart', err))
 }

@@ -25,6 +25,7 @@ const SearchLocalContainer = class extends React.Component {
 
   searchSubmit(event) {
     event.preventDefault()
+    // OB/SBW: consider subscribing to store and then updating query string in URL as opposed to doing a browserHistory.push
     browserHistory.push(`/products/search?keywords=${this.state.searchQuery}`)
     this.props.setSearchQuery(this.state.searchQuery)
   }
