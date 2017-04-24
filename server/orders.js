@@ -10,11 +10,13 @@ module.exports = require('express').Router()
   (req, res, next) =>
     User.findById(req.params.id)
       .then(user => user.getOrders({
-        include: [
-          {model: OrderItem, include: [{
-            model: Inventory, include: [
-              Product, Vendor]}
-          ]}]
+        include: [{
+          model: OrderItem,
+          include: [{
+            model: Inventory,
+            include: [Product, Vendor]
+          }]
+        }]
       }))
       .then(orders => res.json(orders))
       .catch(next))

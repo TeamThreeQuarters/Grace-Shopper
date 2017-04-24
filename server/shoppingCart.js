@@ -29,11 +29,11 @@ module.exports = require('express').Router()
     })
       .spread((shoppingCart) => {
         req.session.shoppingCartId = shoppingCart.id
-        shoppingCart.createShopping_cart_item({
+        return shoppingCart.createShopping_cart_item({
           quantity: req.body.quantity,
           price: req.body.price
         })
       })
-      .then(res.sendStatus(201))
+      .then(() => res.sendStatus(201))
       .catch(next)
   })
