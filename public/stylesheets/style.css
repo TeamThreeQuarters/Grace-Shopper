@@ -27,6 +27,11 @@
   margin: 10px;
 }
 
+.google-signin {
+  text-align: center;
+  margin: 10px;
+}
+
 button.signup {
   margin: 10px;
 }
