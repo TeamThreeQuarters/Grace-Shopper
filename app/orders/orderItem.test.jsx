@@ -12,11 +12,11 @@ describe('<OrderItem />', () => {
   let root
   let product
   beforeEach('render the root', () => {
-    let orderItem = sampleOrders[0].orderItems[0]
+    const orderItem = sampleOrders[0].orderItems[0]
     // console.log('ORDERITEM: ', orderItem)
     product = orderItem.inventory.product
-    let vendor = orderItem.inventory.vendor
-    root = shallow(<OrderItem orderItem={orderItem} product={product} vendor={vendor}/>)
+    const vendor = orderItem.inventory.vendor
+    root = shallow(<OrderItem orderItem={orderItem} product={product} vendor={vendor} />)
   })
 
   it('Has a row', () => {
@@ -56,8 +56,7 @@ describe('<OrderItem />', () => {
     expect(root.find('img')).to.have.attr('src').equals(product.images[0]);
   })
 
-//   it('Has a paragraph with item price', () => {
-//     expect(root.find('hr[className="order-seperator"]')).to.have.length(1);
-//   })
+  //   it('Has a paragraph with item price', () => {
+  //     expect(root.find('hr[className="order-seperator"]')).to.have.length(1);
+  //   })
 })
-

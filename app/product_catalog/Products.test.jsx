@@ -6,6 +6,7 @@ import { shallow } from 'enzyme'
 import { spy } from 'sinon'
 chai.use(require('sinon-chai'))
 import Products from './components'
+import ProductSummary from './components/ProductSummary'
 import ProductsContainer from './containers'
 
 /* global describe it beforeEach */
@@ -37,19 +38,23 @@ describe('<Products />', () => {
   )
 
   it('shows all products', () => {
-    const items = root.find('div[className="product-item"]')
-    expect(items).to.have.length(3)
+    expect(root.find(ProductSummary)).to.have.length(3)
+  })
+
+  const items = []
+
+  beforeEach('render the products', () => {
+    sampleProducts.forEach(product => {
+      items.push(shallow(<ProductSummary product={product} />))
+    })
   })
 
   it('shows an image field for each product', () => {
-    const img = root.find('img[className="product-image"]')
-    expect(img).to.have.length(3)
-    expect(img.at(0)).to.have.attr('src').equals(sampleProducts[0].images[0])
-  })
-
-  it('calls Link when a product is clicked', () => {
-    const items = root.find('Link[to]')
-    expect(items).to.have.length(3)
+    for (let i = 0; i < sampleProducts.length; i++) {
+      const img = items[i].find('img[className="product-image"]')
+      expect(img).to.have.length(1)
+      expect(img.at(0)).to.have.attr('src').equals(sampleProducts[i].images[0])
+    }
   })
 })
 

@@ -19,6 +19,3 @@ describe('<Orders />', () => {
     expect(root.find(Order)).to.have.length(2);
   })
 })
-
-
-
