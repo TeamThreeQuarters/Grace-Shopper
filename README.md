@@ -1,4 +1,4 @@
-# Grace Shopper
+# Fullstack Marketplace
 [![Coverage Status](https://coveralls.io/repos/github/TeamThreeQuarters/Grace-Shopper/badge.svg?branch=master)](https://coveralls.io/github/TeamThreeQuarters/Grace-Shopper?branch=master)
 
 
