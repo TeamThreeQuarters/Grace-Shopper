@@ -1,34 +1,52 @@
 'use strict'
 
 import React from 'react'
+import { Link } from 'react-router'
 
-const Orders = props => (
-  <div className="container">
-    <h1>
-      Orders:
-    </h1>
-    <div>
-      {console.log('ORDERS:', props.orders)}
-      {props.orders.map(order => (
-        <div key={order.id}>
-            <h2>Order ID: {order.id}</h2>
-            <p>Order Submitted At: {order.created_at}</p>
-            <p><strong>{order.paidStatus ? 'Order Payment Complete' : 'Order Payment Not Complete'}</strong></p>
-            <h3>Items</h3>
-            {order.orderItems.map(orderItem => (
-              <div className='indent' key={orderItem.id}>
-                <h4>Item ID: {orderItem.id}</h4>
-                <div className='indent-twice'>
-                  <p>Delivery Status: { orderItem.deliveryStatus }</p>
-                  <p>Cost: { orderItem.price }</p>
-                  <p>Quantity: { orderItem.quantity }</p>
-                </div>
-              </div>
-            ))}
-        </div>
-      ))}
-    </div>
-  </div>
-)
+const Orders = props => {
+  const orders = props.orders;
+  return (
+    <div className="container">
+      <div>
+        {console.log('ORDERS:', orders)}
+        {orders.map(order => (
+          <div key={order.id}>
+              <h2>Order ID: {order.id}</h2>
+              <p>Order Submitted At: {order.created_at}</p>
+              <p><strong>{order.paidStatus ? 'Order Payment Complete' : 'Order Payment Not Complete'}</strong></p>
+              <hr/>
+              {order.orderItems.map((orderItem, index, array) => {
+                const inventory = orderItem.inventory;
+                const vendor = inventory.vendor;
+                const product = inventory.product
+                return (
+                  <div key={orderItem.id}>
+                    <div className='row'>
+                      <div className='col-md-6'>
+                        <h4>{ product.name }</h4>
+                        <p>Delivery Status: { orderItem.deliveryStatus }</p>
+                        <p>Cost: <span>$</span>{ orderItem.price }</p>
+                        <p>Quantity: { orderItem.quantity }</p>
+                        <p>Bought From: { vendor.name }</p>
+                      </div>
+                      <div className='col-md-6'>
+                        <Link to={`/product/${product.name}/${product.id}`}>
+                          <span>
+                            <img src={product.images[0]} className="product-image" />
+                          </span>
+                          <p><span> {product.name} : {product.description}</span></p>
+                        </Link>                        
+                      </div>
+                    </div>
+                    {index === array.length - 1 ? <hr className="order-seperator"/> : <hr/>}
+                  </div>
+                )
+              })}
+          </div>
+        ))}
+      </div>
+    </div> 
+  )
+}
 
 export default Orders

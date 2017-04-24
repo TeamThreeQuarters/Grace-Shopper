@@ -24,14 +24,5 @@ module.exports = require('express').Router()
       .then(order => res.status(201).json(order))
       .catch(next))
 
-// User.findAll({
-//   include: [
-//     {model: Tool, as: 'Instruments', include: [
-//       {model: Teacher, include: [ /* etc */]}
-//     ]}
-//   ]
-// }).then(function(users) {
-//   console.log(JSON.stringify(users))
-
 
 
