@@ -16,20 +16,20 @@ const productCatalogReducer = (state = initialState, action) => {
   const newState = Object.assign({}, state)
 
   switch (action.type) {
-  case SET_PRODUCT:
-    newState.product = action.product
-    break
+    case SET_PRODUCT:
+      newState.product = action.product
+      break
 
-  case SET_PRODUCTS:
-    newState.products = action.products
-    break
+    case SET_PRODUCTS:
+      newState.products = action.products
+      break
 
-  case SET_CATEGORIES:
-    newState.categories = action.categories
-    break
+    case SET_CATEGORIES:
+      newState.categories = action.categories
+      break
 
-  default:
-    return state
+    default:
+      return state
   }
 
   return newState

@@ -27,7 +27,7 @@ const Navbar = props => {
             <span className="icon-bar" />
             <span className="icon-bar" />
           </button>
-          <Link to="/" className="navbar-brand" onClick={removeSearchQuery}>Grace Shopper</Link>
+          <Link to="/" className="navbar-brand" onClick={removeSearchQuery}>Fullstack Marketplace</Link>
         </div>
 
         {/* Collect the nav links, forms, and other content for toggling */}
