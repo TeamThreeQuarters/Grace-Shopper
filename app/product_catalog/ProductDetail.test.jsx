@@ -5,8 +5,8 @@ chai.use(require('chai-enzyme')())
 import { shallow } from 'enzyme'
 import { spy } from 'sinon'
 chai.use(require('sinon-chai'))
-import SingleProduct from './components/SingleProduct'
-import SingleProductContainer from './containers/SingleProduct'
+import ProductDetail from './components/ProductDetail'
+import ProductDetailContainer from './containers/ProductDetail'
 
 /* global describe it beforeEach */
 
@@ -18,10 +18,10 @@ const sampleProduct = {
   tags: ['tag1', 'tag2']
 }
 
-describe('<SingleProduct />', () => {
+describe('<ProductDetail />', () => {
   let root
   beforeEach('render the root', () =>
-    root = shallow(<SingleProduct product={sampleProduct} />)
+    root = shallow(<ProductDetail product={sampleProduct} />)
   )
 
   it('shows only the selected product', () => {
@@ -36,7 +36,7 @@ describe('<SingleProduct />', () => {
   })
 })
 
-describe("<SingleProduct />'s connection", () => {
+describe("<ProductDetail />'s connection", () => {
   const state = {
     products: {
       product: sampleProduct
@@ -47,10 +47,10 @@ describe("<SingleProduct />'s connection", () => {
   beforeEach('create store and render the root', () => {
     store = createStore(state => state, state)
     spy(store, 'dispatch')
-    root = shallow(<SingleProductContainer store={store} />)
+    root = shallow(<ProductDetailContainer store={store} />)
   })
 
   it('gets prop.product from state.products.product', () => {
-    expect(root.find(SingleProduct)).to.have.prop('product').eql(state.products.product)
+    expect(root.find(ProductDetail)).to.have.prop('product').eql(state.products.product)
   })
 })

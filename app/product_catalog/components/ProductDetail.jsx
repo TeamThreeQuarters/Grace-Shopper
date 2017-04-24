@@ -7,13 +7,13 @@ const ProductDetail = props => {
     <div className="container">
       {product.images &&
         <div className="product-item">
-          <span>
+          <div>
             <img src={product.images[0]} className="product-image" />
-          </span>
-          <h3>{props.product.name}</h3>
-          <span>
-            {props.product.description}
-          </span>
+          </div>
+          <div>
+            <h3>{props.product.name}</h3>
+            <p>{props.product.description}</p>
+          </div>
         </div>
       }
     </div>

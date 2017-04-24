@@ -12,7 +12,7 @@ describe('/api/shoppingCart', () => {
     describe('with no items in Shopping Cart', () =>
       it('returns an empty array', () =>
         request(app)
-          .get('/api/shoppingCart')
+          .get('/api/shoppingCart/items')
           .then(res => expect(res.body).to.have.length(0))
       )
     )
@@ -23,7 +23,7 @@ describe('/api/shoppingCart', () => {
       describe('add an item to the cart', () =>
         it('creates shopping cart', () =>
           request(app)
-            .post('/api/shoppingCart')
+            .post('/api/shoppingCart/items')
             .send({ quantity: 3, price: 9.99 })
             .expect(201)
         )

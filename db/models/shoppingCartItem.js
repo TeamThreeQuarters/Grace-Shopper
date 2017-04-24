@@ -9,13 +9,6 @@ module.exports = db => db.define('shopping_cart_items', {
     validate: {
       min: 1
     }
-  },
-  price: {
-    type: DECIMAL,
-    allowNull: false,
-    validate: {
-      min: 0
-    }
   }
 })
 

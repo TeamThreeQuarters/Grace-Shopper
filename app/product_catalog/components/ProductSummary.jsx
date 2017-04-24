@@ -3,8 +3,6 @@ import React from 'react'
 const SingleProduct = props => {
   const product = props.product
 
-  const style = {}
-
   return (
     <div className="container">
       {product.images &&
