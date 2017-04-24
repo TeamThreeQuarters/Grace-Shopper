@@ -5,31 +5,36 @@ const { ShoppingCart } = db
 
 module.exports = require('express').Router()
 
-  .all('*', (req, res, next) => {
-    if (!req.user && !req.session.shoppingCartId) next()
-    const whereCriteria = req.user ? {user_id: req.user.id} : {id: req.session.shoppingCartId}
-    ShoppingCart.findOne({
-      where: whereCriteria
-    })
-      .then(shoppinCart => req.shoppingCart = shoppinCart)
-      .then(next)
-      .catch(next)
-  })
-
   .get('/', (req, res, next) => {
-    console.log('/shoppingCart GET')
-    if (!req.shoppingCart) return res.json([])
-    req.shoppingCart.getShoppingCartItems()
+    if (!req.user && !req.session.shoppingCartId) return res.json([])
+    const where = req.user ? {user_id: req.user.id} : {id: req.session.shoppingCartId}
+    ShoppingCart.findOne({
+      where,
+    })
+      .then(shoppingCart => shoppingCart.getShoppingCartItems())
       .then(shoppingCartItems => res.json(shoppingCartItems))
       .catch(next)
   })
 
   .post('/', (req, res, next) => {
-    console.log('/shoppingCart POST')
-    req.shoppingCart.createShoppingCartItem({
-      quantity: req.body.quantity,
-      price: req.body.price
+    let where = {}
+    if (req.user) where = {user_id: req.user.id}
+    if (req.session.shoppingCartId) where = {id: req.session.shoppingCartId}
+
+    const defaults = req.user ? {user_id: req.user.id} : {}
+
+    ShoppingCart.findOrCreate({
+      where,
+      defaults,
     })
+      .spread((shoppingCart) => {
+        req.session.shoppingCartId = shoppingCart.id
+        shoppingCart.createShopping_cart_item({
+          quantity: req.body.quantity,
+          price: req.body.price
+        })
+      })
       .then(res.sendStatus(201))
       .catch(next)
+
   })
