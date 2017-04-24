@@ -26,8 +26,8 @@ const orderItems = seed(OrderItem, ({ orders, inventories }) => {
       quantity: 8,
       order_id: orders.order2.id,
       inventory_id: inventories.fullStackOmris.id
-    },
+    }
   }
-})
+}))
 
 module.exports = orderItems

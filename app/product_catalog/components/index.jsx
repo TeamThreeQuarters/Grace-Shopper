@@ -10,7 +10,7 @@ const ProductCatalog = props => {
     <div className="container">
       <div>
         Products:
-    </div>
+      </div>
       <div>
         {products && products.map(product => (
           <div className="product-item" key={product.id}>

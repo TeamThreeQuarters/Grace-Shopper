@@ -24,6 +24,3 @@ const ordersReducer = (state = initialState, action) => {
 }
 
 export default ordersReducer
-
-
-

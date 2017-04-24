@@ -7,7 +7,7 @@ module.exports = require('express').Router()
 
   .get('/', (req, res, next) => {
     if (!req.user && !req.session.shoppingCartId) return res.json([])
-    const where = req.user ? {user_id: req.user.id} : {id: req.session.shoppingCartId}
+    const where = req.user ? { user_id: req.user.id } : { id: req.session.shoppingCartId }
     ShoppingCart.findOne({
       where,
     })
@@ -18,10 +18,10 @@ module.exports = require('express').Router()
 
   .post('/', (req, res, next) => {
     let where = {}
-    if (req.user) where = {user_id: req.user.id}
-    if (req.session.shoppingCartId) where = {id: req.session.shoppingCartId}
+    if (req.user) where = { user_id: req.user.id }
+    if (req.session.shoppingCartId) where = { id: req.session.shoppingCartId }
 
-    const defaults = req.user ? {user_id: req.user.id} : {}
+    const defaults = req.user ? { user_id: req.user.id } : {}
 
     ShoppingCart.findOrCreate({
       where,
@@ -36,5 +36,4 @@ module.exports = require('express').Router()
       })
       .then(res.sendStatus(201))
       .catch(next)
-
   })

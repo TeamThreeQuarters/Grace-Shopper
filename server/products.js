@@ -1,12 +1,17 @@
 'use strict'
 
 const db = require('APP/db')
-const { Product, Category } = db
+const { Product, Category, Inventory, Vendor } = db
 
 module.exports = require('express').Router()
   .get('/product/:id',
   (req, res, next) =>
-    Product.findById(req.params.id)
+    Product.findById(req.params.id, {
+      include: [{
+        model: Inventory,
+        include: [Vendor]
+      }]
+    })
       .then(product => res.json(product))
       .catch(next)
   )

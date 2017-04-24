@@ -15,6 +15,6 @@ const orders = seed(Order, ({ users }) => {
       user_id: users.god.id
     }
   }
-})
+}))
 
 module.exports = orders
