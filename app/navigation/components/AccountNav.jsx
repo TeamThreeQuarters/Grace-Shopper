@@ -49,7 +49,7 @@ const AccountNav = props => {
           logout={logout} />
         : <Guest />
       }
-      <li><Link to="#">Cart</Link></li>
+      <li><Link to="/cart">Cart</Link></li>
     </ul>
   )
 }

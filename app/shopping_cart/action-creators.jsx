@@ -2,26 +2,41 @@
 
 import axios from 'axios'
 
-import { ADD_ITEM, UPDATE_QUANTITY, REMOVE_ITEM } from './constants'
+import {
+  SET_ITEMS,
+  ADD_ITEM,
+  UPDATE_QUANTITY,
+  REMOVE_ITEM
+} from './constants'
 
 // ACTION CREATORS
+export const setItems = items => ({
+  type: SET_ITEMS,
+  items
+})
+
 export const addItem = item => ({
   type: ADD_ITEM,
-  item: item
+  item
 })
 
 export const updateQuantity = (itemId, quantity) => ({
   type: UPDATE_QUANTITY,
-  itemId: itemId,
-  quantity: quantity
+  itemId,
+  quantity
 })
 
 export const removeItem = itemId => ({
   type: REMOVE_ITEM,
-  itemId: itemId
+  itemId
 })
 
 /* THUNK DISPATCHERS */
+export const getShoppingCart = () => dispatch => {
+  axios.get('/api/shoppingCart/items')
+    .then(result => dispatch(setItems(result.data)))
+    .catch(err => console.error('Error retrieving shopping cart', err))
+}
 
 export const addToShoppingCart = product => dispatch => {
   axios.post('/api/shoppingCart', product)
