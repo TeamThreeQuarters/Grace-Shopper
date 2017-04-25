@@ -36,16 +36,20 @@ export const removeItem = itemId => ({
 export const getShoppingCartItems = () => dispatch => {
   axios.get('/api/shoppingCart/items')
     .then(response => {
-      console.log('Shopping Cart Items Response:', response)
-
-      // dispatch(setItems(result.data))
+      const shoppingCartItems = response.data.reduce(
+        (shoppingCartItems, shoppingCartItem) => {
+          shoppingCartItems[shoppingCartItem.inventory_id] = shoppingCartItem.quantity
+          return shoppingCartItems
+        }, {})
+      dispatch(setItems(shoppingCartItems))
     })
     .catch(err => console.error('Error retrieving shopping cart', err))
 }
 
 export const addToShoppingCart = (inventoryId, quantity) => dispatch => {
+  console.log('inventoryId', inventoryId)
   axios.post('/api/shoppingCart/items', {inventoryId, quantity})
-    .then((response) => dispatch(addItem(inventoryId, quantity)))
+    .then(() => dispatch(addItem(inventoryId, quantity)))
     .catch(err => console.error('Error adding item to shopping cart', err))
 }
 
