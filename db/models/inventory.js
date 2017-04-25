@@ -11,7 +11,7 @@ module.exports = db => db.define('inventory', {
     }
   },
   price: {
-    type: DECIMAL,
+    type: DECIMAL(10, 2),
     allowNull: false,
     validate: {
       min: 0

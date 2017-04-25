@@ -45,7 +45,6 @@ describe('Order Item', () => {
         .catch(err => expect(err.message).to.equal('notNull Violation: quantity cannot be null')))
 
     it('Order Items have an inventory', () =>
-      // {console.log('INVENTORY IN TEST: ', Inventory)
       OrderItem.create({
         deliveryStatus: 'waiting',
         price: 1.00,
@@ -59,7 +58,6 @@ describe('Order Item', () => {
       })
         .then(orderItem => orderItem.getInventory())
         .then(inventory => {
-            // console.log('INVENTORY: ', inventory)
           expect(inventory.quantity).to.be.equal(9)
           expect(Number(inventory.price)).to.be.equal(1.00)
         }))

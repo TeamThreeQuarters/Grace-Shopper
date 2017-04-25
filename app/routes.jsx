@@ -8,15 +8,17 @@ import NotFound from './components/NotFound';
 
 import ProductCatalog from './product_catalog/containers';
 import ProductDetail from './product_catalog/containers/ProductDetail'
-import Orders from './orders/containers'
 import Account from './user/containers/Account';
 import Login from './user/containers/Login';
 import Signup from './user/containers/Signup';
+import ShoppingCart from './shopping_cart/containers'
+import Orders from './orders/containers'
 
 /* Dispatchers */
 import { getProduct, getProducts, getCategories, getCategoryProducts } from './product_catalog/action-creators'
 import { getUserOrders } from './orders/action-creators'
 import { setSearchQuery } from './navigation/action-creators'
+import { getShoppingCart } from './shopping_cart/action-creators'
 
 /* ROUTES COMPONENT */
 const RoutesComponent = (props) => (
@@ -36,6 +38,7 @@ const RoutesComponent = (props) => (
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
       <Route path="/account" component={Account} />
+      <Route path="/cart" component={ShoppingCart} onEnter={props.getShoppingCart} />
       <Route path="/orders" component={Orders} onEnter={props.getOrders} />
     </Route>
     <Route path="*" component={NotFound} />
@@ -51,7 +54,8 @@ const mapDispatchToProps = dispatch => ({
   getAllProducts: () => dispatch(getProducts()),
   getCategoryProducts: categoryName => dispatch(getCategoryProducts(categoryName)),
   getSearchProducts: searchQuery => dispatch(setSearchQuery(searchQuery)),
-  getOrders: () => dispatch(getUserOrders())
+  getOrders: () => dispatch(getUserOrders()),
+  getShoppingCart: () => dispatch(getShoppingCart())
 })
 
 const Routes = connect(mapStateToProps, mapDispatchToProps)(RoutesComponent);

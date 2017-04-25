@@ -18,16 +18,17 @@ module.exports = require('express').Router()
 
   .get('/',
   (req, res, next) => {
-    const whereClause = {}
+    const where = {}
 
     if (req.query.keywords) {
-      whereClause.name = {
+      where.name = {
         $ilike: `%${req.query.keywords}%`
       }
     }
 
     Product.findAll({
-      where: whereClause
+      where,
+      include: [Inventory]
     })
       .then(products => res.json(products))
       .catch(next)
@@ -46,7 +47,7 @@ module.exports = require('express').Router()
         name: req.params.categoryName
       }
     })
-      .then(category => category.getProducts())
+      .then(category => category.getProducts({ include: [Inventory] }))
       .then(products => res.json(products))
       .catch(next)
   })

@@ -1,27 +1,36 @@
 'use strict'
 
-import { ADD_ITEM, REMOVE_ITEM } from './constants'
+import {
+  SET_ITEMS,
+  ADD_ITEM,
+  REMOVE_ITEM
+} from './constants'
 
 const initialState = {
-  items: {},
+  items: [],
 }
 
-/* eslint indent: [ "warn", 2,  { "SwitchCase": 1 }] */
 const shoppingCartReducer = (state = initialState, action) => {
   const newState = Object.assign({}, state)
 
   switch (action.type) {
+    case SET_ITEMS:
+      newState.items = action.items
+      break
+
     case ADD_ITEM:
-      newState.items[action.item.id] = action.item
+      newState.items = newState.items.push(action.item)
       break
 
     case REMOVE_ITEM:
-      delete newState.items[action.item.id]
+      newState.items = newState.items.filter(item => item.id !== action.itemId)
       break
 
     default:
       return state
   }
+
+  return newState
 }
 
 export default shoppingCartReducer

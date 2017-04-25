@@ -2,6 +2,7 @@ import React from 'react'
 
 const ProductDetail = props => {
   const product = props.product
+  const inventories = product.inventories
 
   return (
     <div className="container">
@@ -13,7 +14,8 @@ const ProductDetail = props => {
           <div className="product_info">
             <span>Fullstack</span>
             <h3>{props.product.name}</h3>
-            <span>Price: ${product.price}</span>
+            {inventories && Object.keys(inventories).length ? <span>Price: ${inventories[0].price}</span>
+              : <span>Out of Stock</span>}
             <p>{props.product.description}</p>
             <button className="btn-primary">Add to Cart</button>
           </div>
