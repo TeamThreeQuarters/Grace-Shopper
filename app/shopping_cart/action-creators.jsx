@@ -15,9 +15,10 @@ export const setItems = items => ({
   items
 })
 
-export const addItem = item => ({
+export const addItem = (inventoryId, quantity) => ({
   type: ADD_ITEM,
-  item
+  inventoryId,
+  quantity
 })
 
 export const updateQuantity = (itemId, quantity) => ({
@@ -32,15 +33,22 @@ export const removeItem = itemId => ({
 })
 
 /* THUNK DISPATCHERS */
-export const getShoppingCart = () => dispatch => {
+export const getShoppingCartItems = () => dispatch => {
   axios.get('/api/shoppingCart/items')
-    .then(result => dispatch(setItems(result.data)))
+    .then(response => {
+      const shoppingCartItems = response.data.reduce(
+        (shoppingCartItems, shoppingCartItem) => {
+          shoppingCartItems[shoppingCartItem.inventory_id] = shoppingCartItem.quantity
+          return shoppingCartItems
+        }, {})
+      dispatch(setItems(shoppingCartItems))
+    })
     .catch(err => console.error('Error retrieving shopping cart', err))
 }
 
-export const addToShoppingCart = product => dispatch => {
-  axios.post('/api/shoppingCart', product)
-    .then((shoppingCartItem) => dispatch(addItem(shoppingCartItem)))
+export const addToShoppingCart = (inventoryId, quantity) => dispatch => {
+  axios.post('/api/shoppingCart/items', {inventoryId, quantity})
+    .then(() => dispatch(addItem(inventoryId, quantity)))
     .catch(err => console.error('Error adding item to shopping cart', err))
 }
 

@@ -17,7 +17,9 @@ const ProductDetail = props => {
             {inventories && Object.keys(inventories).length ? <span>Price: ${inventories[0].price}</span>
               : <span>Out of Stock</span>}
             <p>{props.product.description}</p>
-            <button className="btn-primary">Add to Cart</button>
+            <button className="btn-primary" onClick={
+              () => props.addToShoppingCart(inventories[0].id, 1)
+            }>Add to Cart</button>
           </div>
         </div>
       }
