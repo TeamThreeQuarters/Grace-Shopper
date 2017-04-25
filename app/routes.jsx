@@ -15,15 +15,14 @@ import ShoppingCart from './shopping_cart/containers'
 import Orders from './orders/containers'
 
 /* Dispatchers */
-import { getProduct, getProducts, getCategories, getCategoryProducts } from './product_catalog/action-creators'
+import { getProduct, getProducts, getCategoryProducts } from './product_catalog/action-creators'
 import { getUserOrders } from './orders/action-creators'
 import { setSearchQuery } from './navigation/action-creators'
-import { getShoppingCart } from './shopping_cart/action-creators'
 
 /* ROUTES COMPONENT */
 const RoutesComponent = (props) => (
   <Router history={browserHistory}>
-    <Route path="/" component={Root} onEnter={props.loadCategories}>
+    <Route path="/" component={Root}>
       <IndexRedirect to="/products" />
       <Route path="/products" component={ProductCatalog} onEnter={props.getAllProducts} />
       <Route path="/products/search" component={ProductCatalog} onEnter={nextProps => {
@@ -38,7 +37,7 @@ const RoutesComponent = (props) => (
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
       <Route path="/account" component={Account} />
-      <Route path="/cart" component={ShoppingCart} onEnter={props.getShoppingCart} />
+      <Route path="/cart" component={ShoppingCart} />
       <Route path="/orders" component={Orders} onEnter={props.getOrders} />
     </Route>
     <Route path="*" component={NotFound} />
@@ -49,13 +48,11 @@ const RoutesComponent = (props) => (
 const mapStateToProps = () => ({})
 
 const mapDispatchToProps = dispatch => ({
-  loadCategories: () => dispatch(getCategories()),
   getSelectedProduct: productId => dispatch(getProduct(productId)),
   getAllProducts: () => dispatch(getProducts()),
   getCategoryProducts: categoryName => dispatch(getCategoryProducts(categoryName)),
   getSearchProducts: searchQuery => dispatch(setSearchQuery(searchQuery)),
   getOrders: () => dispatch(getUserOrders()),
-  getShoppingCart: () => dispatch(getShoppingCart())
 })
 
 const Routes = connect(mapStateToProps, mapDispatchToProps)(RoutesComponent);
