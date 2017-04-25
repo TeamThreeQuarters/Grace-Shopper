@@ -1,15 +1,14 @@
 import React from 'react'
 
-const ShoppingCart = props => {
-  const shoppingCartItems = props.shoppingCartItems
-
-  return (
-    <div className="container">
-      {/* {console.log('Stupid lint error', shoppingCartItems)} */}
-      <h4>Shopping Cart </h4>
-      <button>Proceeed to checkout</button>
+const ShoppingCart = () => (
+    <div className="shopping_cart">
+      <div>
+        <h4>Shopping Cart </h4>
+        <button>Proceeed to checkout</button>
+      </div>
+      <div>
+      </div>
     </div>
   )
-}
 
 export default ShoppingCart

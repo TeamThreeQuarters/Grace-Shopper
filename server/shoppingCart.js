@@ -4,7 +4,6 @@ const db = require('APP/db')
 const { ShoppingCart, ShoppingCartItem } = db
 
 module.exports = require('express').Router()
-
   .get('/', (req, res, next) => {
     if (!req.user && !req.session.shoppingCartId) return res.json([])
     const where = req.user ? { user_id: req.user.id } : { id: req.session.shoppingCartId }
