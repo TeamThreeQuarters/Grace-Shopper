@@ -1,8 +1,5 @@
 ![Data Model](/public/images/navbar_logo.png?raw=true "Data Model")
 
-<div style="display: flex; justify-content: center;">
-<img src ="/public/images/navbar_logo.png" />
-</div>
 
 # Fullstack Marketplace
 [ ![Codeship Status for TeamThreeQuarters/Grace-Shopper](https://app.codeship.com/projects/9df6eb30-0b5c-0135-2689-7a8619df7c4a/status?branch=master)](https://app.codeship.com/projects/215002)
