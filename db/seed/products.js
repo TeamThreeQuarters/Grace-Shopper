@@ -6,28 +6,28 @@ const seed = require('./_seed')
 const products = seed(Product, ({ categories }) => (
   {
     sam: {
-      name: 'Sam Wheeler',
+      name: 'Sam Wheeler Office Hours',
       images: ['https://ca.slack-edge.com/T024FPYBQ-U2VKD56EB-59de4a404278-512'],
       description: 'Lucky fellow with the best team',
       category_id: categories.officeHours.id,
       tags: ['male', 'white']
     },
     damon: {
-      name: 'Damon Ye',
+      name: 'Damon Ye Office Hours',
       images: ['https://ca.slack-edge.com/T024FPYBQ-U2VKYATL5-056c42d1e01a-512'],
       description: 'Not so lucky fellow',
       category_id: categories.officeHours.id,
       tags: ['male', 'asian']
     },
     omri: {
-      name: 'Omri Bernstein',
+      name: 'Omri Bernstein Office Hours',
       images: ['https://cloud.fullstackacademy.com/omri_bernstein.jpg?mtime=20151116210855'],
       description: 'Lucky instructor teaching the best cohort',
       category_id: categories.officeHours.id,
       tags: ['male', 'funny']
     },
     lisa: {
-      name: 'Lisa Pan',
+      name: 'Lisa Pan Office Hours',
       images: ['https://ca.slack-edge.com/T024FPYBQ-U3TBGTLNS-b4d94d9ae896-512'],
       description: 'Not so lucky fellow',
       category_id: categories.officeHours.id,

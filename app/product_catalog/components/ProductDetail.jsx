@@ -3,7 +3,6 @@ import React from 'react'
 const ProductDetail = props => {
   const product = props.product
   const inventories = product.inventories
-  console.log(props.product);
 
   return (
     <div className="container">
@@ -19,7 +18,7 @@ const ProductDetail = props => {
               : <span>Out of Stock</span>}
             <p>{props.product.description}</p>
             <button className="btn-primary" onClick={
-              () => props.addToShoppingCart(product.inventory[0].id, 1)
+              () => props.addToShoppingCart(inventories[0].id, 1)
             }>Add to Cart</button>
           </div>
         </div>

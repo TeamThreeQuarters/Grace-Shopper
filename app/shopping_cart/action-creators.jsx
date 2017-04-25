@@ -15,9 +15,10 @@ export const setItems = items => ({
   items
 })
 
-export const addItem = item => ({
+export const addItem = (inventoryId, quantity) => ({
   type: ADD_ITEM,
-  item
+  inventoryId,
+  quantity
 })
 
 export const updateQuantity = (itemId, quantity) => ({
@@ -38,10 +39,10 @@ export const getShoppingCart = () => dispatch => {
     .catch(err => console.error('Error retrieving shopping cart', err))
 }
 
-export const addToShoppingCart = (inventory_id, quantity) => dispatch => {
-  console.log("addToShoppingCart")
-  axios.post('/api/shoppingCart/items', {inventory_id, quantity })
-    .then((shoppingCartItem) => dispatch(addItem(shoppingCartItem)))
+export const addToShoppingCart = (inventoryId, quantity) => dispatch => {
+  console.log('addToShoppingCart')
+  axios.post('/api/shoppingCart/items', {inventoryId, quantity})
+    .then((shoppingCartItem) => dispatch(addItem(inventoryId, quantity)))
     .catch(err => console.error('Error adding item to shopping cart', err))
 }
 

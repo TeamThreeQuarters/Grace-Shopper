@@ -7,7 +7,7 @@ import {
 } from './constants'
 
 const initialState = {
-  items: [],
+  items: {},
 }
 
 const shoppingCartReducer = (state = initialState, action) => {
