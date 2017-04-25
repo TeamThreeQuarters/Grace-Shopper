@@ -1,6 +1,6 @@
 ![Data Model](/public/images/navbar_logo.png?raw=true "Data Model")
 
-<div style="text-align:center">
+<div style="display: flex; justify-content: center;">
 <img src ="/public/images/navbar_logo.png" />
 </div>
 
