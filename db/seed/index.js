@@ -26,8 +26,9 @@ function seedEverything() {
     vendors: vendors()
   }
   seeded.products = products(seeded)
-  seeded.orders = orders(seeded)
   seeded.inventories = inventories(seeded)
+  seeded.users = users(seeded)
+  seeded.orders = orders(seeded)
   seeded.orderItems = orderItems(seeded)
   seeded.productReviews = productReviews(seeded)
 

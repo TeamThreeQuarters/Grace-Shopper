@@ -95,7 +95,7 @@ hr.order-seperator {
 .product_info {
   display: flex;
   flex-direction: column;
-  margin-left: 1%
+  margin-left: 1%;
 }
 
 .product_info h3 {

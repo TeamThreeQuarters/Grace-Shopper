@@ -1,17 +1,19 @@
 'use strict'
 
 const db = require('APP/db')
-const { ShoppingCart } = db
+const { ShoppingCart, ShoppingCartItem } = db
 
 module.exports = require('express').Router()
-
   .get('/', (req, res, next) => {
     if (!req.user && !req.session.shoppingCartId) return res.json([])
     const where = req.user ? { user_id: req.user.id } : { id: req.session.shoppingCartId }
     ShoppingCart.findOne({
       where,
     })
-      .then(shoppingCart => shoppingCart.getShoppingCartItems())
+      .then(shoppingCart => {
+        if (!shoppingCart) return []
+        return shoppingCart.getShopping_cart_items()
+      })
       .then(shoppingCartItems => res.json(shoppingCartItems))
       .catch(next)
   })
@@ -29,10 +31,23 @@ module.exports = require('express').Router()
     })
       .spread((shoppingCart) => {
         req.session.shoppingCartId = shoppingCart.id
-        return shoppingCart.createShopping_cart_item({
-          quantity: req.body.quantity,
+        return ShoppingCartItem.upsert({
+          shopping_cart_id: shoppingCart.id,
+          inventory_id: req.body.inventoryId,
+          quantity: req.body.quantity
         })
       })
       .then(() => res.sendStatus(201))
+      .catch(next)
+  })
+
+  .delete('/', (req, res, next) => {
+    if (!req.user && !req.session.shoppingCartId) return res.json([])
+    const where = req.user ? { user_id: req.user.id } : { id: req.session.shoppingCartId }
+    ShoppingCart.findOne({
+      where,
+    })
+      .then(shoppingCart => shoppingCart.setShopping_cart_items([]))
+      .then(() => res.sendStatus(202))
       .catch(next)
   })

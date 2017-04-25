@@ -7,7 +7,7 @@ import {
 } from './constants'
 
 const initialState = {
-  items: [],
+  items: {},
 }
 
 const shoppingCartReducer = (state = initialState, action) => {
@@ -19,7 +19,7 @@ const shoppingCartReducer = (state = initialState, action) => {
       break
 
     case ADD_ITEM:
-      newState.items = newState.items.push(action.item)
+      newState.items[action.inventoryId] = action.quantity
       break
 
     case REMOVE_ITEM:
