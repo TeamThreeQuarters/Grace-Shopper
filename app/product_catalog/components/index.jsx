@@ -1,7 +1,8 @@
 'use strict'
 
 import React from 'react'
-import { Link } from 'react-router'
+
+import ProductSummary from './ProductSummary'
 
 const ProductCatalog = props => {
   const products = props.products
@@ -11,16 +12,11 @@ const ProductCatalog = props => {
       <div>
         Products:
       </div>
-      <div>
-        {products && products.map(product => (
-          <div className="product-item" key={product.id}>
-            <Link to={`/product/${product.name}/${product.id}`}>
-              <span>
-                <img src={product.images[0]} className="product-image" />
-              </span>
-              <span> {product.name} : {product.description} </span>
-            </Link>
-            <hr />
+      <div className="products-container">
+        {products && products.map((product, i) => (
+          <div key={product.id}>
+            <ProductSummary product={product} />
+            {i !== products.length - 1 && <hr />}
           </div>
         ))}
       </div>

@@ -39,5 +39,3 @@ describe('<Orders />', () => {
     expect(root.find('hr[className="order-seperator"]')).to.have.length(1);
   })
 })
-
-
