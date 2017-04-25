@@ -29,7 +29,7 @@ export default class ShoppingCart extends React.Component {
 
   render() {
     console.log(this.props);
-    let shoppingCartItems = this.props.shoppingCartItems
+    const shoppingCartItems = this.props.shoppingCartItems
     return (
       <div className="container">
         {/* {console.log('Stupid lint error', shoppingCartItems)} */}
