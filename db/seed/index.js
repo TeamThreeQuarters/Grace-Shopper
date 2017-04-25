@@ -9,6 +9,7 @@ const inventories = require('./inventories')
 const users = require('./users')
 const orders = require('./orders')
 const orderItems = require('./orderItems')
+const productReviews = require('./productReviews')
 
 if (module === require.main) {
   db.didSync
@@ -21,13 +22,14 @@ if (module === require.main) {
 function seedEverything() {
   const seeded = {
     categories: categories(),
-    vendors: vendors(),
+    users: users(),
+    vendors: vendors()
   }
-  seeded.users = users(seeded)
   seeded.products = products(seeded)
   seeded.orders = orders(seeded)
   seeded.inventories = inventories(seeded)
   seeded.orderItems = orderItems(seeded)
+  seeded.productReviews = productReviews(seeded)
 
   return Promise.props(seeded)
 }

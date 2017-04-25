@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('APP/db')
-const { Order, User, OrderItem, Inventory, Product, Vendor } = db
+const { Order, User, OrderItem, Inventory, Product, Vendor, ProductReview } = db
 const { mustBeLoggedIn } = require('./auth.filters')
 
 module.exports = require('express').Router()
@@ -15,6 +15,8 @@ module.exports = require('express').Router()
           include: [{
             model: Inventory,
             include: [Product, Vendor]
+          }, {
+            model: ProductReview
           }]
         }]
       }))
