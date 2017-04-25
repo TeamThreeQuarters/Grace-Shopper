@@ -19,14 +19,6 @@ describe('<OrderItem />', () => {
     root = shallow(<OrderItem orderItem={orderItem} product={product} vendor={vendor} />)
   })
 
-  it('Has a row', () => {
-    expect(root.find('div[className="row"]')).to.have.length(1);
-  })
-
-  it('Has two columns', () => {
-    expect(root.find('div[className="col-md-6"]')).to.have.length(2);
-  })
-
   it('Has a header with the product name', () => {
     expect(root.find('h4[className="product-name"]')).to.have.length(1);
   })

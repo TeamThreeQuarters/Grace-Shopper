@@ -5,6 +5,7 @@ import OrderItem from './orderItem'
 
 const Order = props => {
   const order = props.order;
+
   return (
     <div>
       <h2 className="id-header">Order ID: {order.id}</h2>
@@ -15,9 +16,14 @@ const Order = props => {
         const inventory = orderItem.inventory;
         const vendor = inventory.vendor;
         const product = inventory.product;
+
         return (
           <div key={orderItem.id}>
-            <OrderItem orderItem={orderItem} inventory={inventory} vendor={vendor} product={product} />
+            <OrderItem
+              orderItem={orderItem} 
+              inventory={inventory} 
+              vendor={vendor} 
+              product={product} />
             {index === array.length - 1 ? <hr className="order-seperator" /> : <hr />}
           </div>
         )
