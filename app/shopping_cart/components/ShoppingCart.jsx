@@ -6,8 +6,8 @@ const ShoppingCart = props => {
   return (
     <div className="container">
       {/* {console.log('Stupid lint error', shoppingCartItems)} */}
-      <h4>Hi, you have </h4>
-      {shoppingCartItems && <h4>{shoppingCartItems.length} items in your cart.</h4>}
+      <h4>Shopping Cart </h4>
+      <button>Proceeed to checkout</button>
     </div>
   )
 }
