@@ -13,7 +13,7 @@ const ProductDetail = props => {
           <div className="product_info">
             <span>Fullstack</span>
             <h3>{props.product.name}</h3>
-            <span>Price: $9.99</span>
+            <span>Price: ${product.price}</span>
             <p>{props.product.description}</p>
             <button className="btn-primary">Add to Cart</button>
           </div>
