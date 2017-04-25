@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 const ProductSummary = props => {
   const product = props.product
   const inventories = product.inventories
+  console.log(product.name, 'Inventories: ', props)
 
   return (
     <div className="product-item">

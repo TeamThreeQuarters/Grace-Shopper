@@ -3,6 +3,7 @@ import React from 'react'
 const ProductDetail = props => {
   const product = props.product
   const inventories = product.inventories
+  console.log(props.product);
 
   return (
     <div className="container">
@@ -17,7 +18,9 @@ const ProductDetail = props => {
             {inventories && Object.keys(inventories).length ? <span>Price: ${inventories[0].price}</span>
               : <span>Out of Stock</span>}
             <p>{props.product.description}</p>
-            <button className="btn-primary">Add to Cart</button>
+            <button className="btn-primary" onClick={
+              () => props.addToShoppingCart(product.inventory[0].id, 1)
+            }>Add to Cart</button>
           </div>
         </div>
       }

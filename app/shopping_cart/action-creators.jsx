@@ -38,8 +38,9 @@ export const getShoppingCart = () => dispatch => {
     .catch(err => console.error('Error retrieving shopping cart', err))
 }
 
-export const addToShoppingCart = product => dispatch => {
-  axios.post('/api/shoppingCart', product)
+export const addToShoppingCart = (inventory_id, quantity) => dispatch => {
+  console.log("addToShoppingCart")
+  axios.post('/api/shoppingCart/items', {inventory_id, quantity })
     .then((shoppingCartItem) => dispatch(addItem(shoppingCartItem)))
     .catch(err => console.error('Error adding item to shopping cart', err))
 }
