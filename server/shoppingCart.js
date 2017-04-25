@@ -6,7 +6,6 @@ const { ShoppingCart } = db
 module.exports = require('express').Router()
 
   .get('/', (req, res, next) => {
-    console.log(req.session);
     if (!req.user && !req.session.shoppingCartId) return res.json([])
     const where = req.user ? { user_id: req.user.id } : { id: req.session.shoppingCartId }
     ShoppingCart.findOne({
@@ -18,7 +17,6 @@ module.exports = require('express').Router()
   })
 
   .post('/', (req, res, next) => {
-    console.log(req.session);
     let where = {}
     if (req.user) where = { user_id: req.user.id }
     if (req.session.shoppingCartId) where = { id: req.session.shoppingCartId }
