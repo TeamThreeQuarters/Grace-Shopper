@@ -11,7 +11,7 @@ import ProductDetail from './product_catalog/containers/ProductDetail'
 import Account from './user/containers/Account';
 import Login from './user/containers/Login';
 import Signup from './user/containers/Signup';
-import ShoppingCart from './shopping_cart/containers'
+import ShoppingCartContainer from './shopping_cart/containers/ShoppingCartContainer'
 import Orders from './orders/containers'
 
 /* Dispatchers */
@@ -37,7 +37,7 @@ const RoutesComponent = (props) => (
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
       <Route path="/account" component={Account} />
-      <Route path="/cart" component={ShoppingCart} />
+      <Route path="/cart" component={ShoppingCartContainer} />
       <Route path="/orders" component={Orders} onEnter={props.getOrders} />
     </Route>
     <Route path="*" component={NotFound} />

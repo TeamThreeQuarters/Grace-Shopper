@@ -19,7 +19,7 @@ const shoppingCartReducer = (state = initialState, action) => {
       break
 
     case ADD_ITEM:
-      newState[action.inventoryId] = action.quantity
+      newState.items[action.inventoryId] = action.quantity
       break
 
     case REMOVE_ITEM:
