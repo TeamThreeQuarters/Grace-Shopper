@@ -42,3 +42,18 @@ module.exports = require('express').Router()
       .then(() => res.sendStatus(201))
       .catch(next)
   })
+
+    .delete('/', (req, res, next) => {
+      if (!req.user && !req.session.shoppingCartId) return res.json([])
+      const where = req.user ? { user_id: req.user.id } : { id: req.session.shoppingCartId }
+      ShoppingCart.findOne({
+        where,
+      })
+        .then(shoppingCart => {
+          return shoppingCart.setShopping_cart_items([])
+        })
+        .then(() => {
+          res.sendStatus(202)
+        })
+        .catch(next)
+    })
