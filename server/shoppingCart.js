@@ -11,7 +11,10 @@ module.exports = require('express').Router()
     ShoppingCart.findOne({
       where,
     })
-      .then(shoppingCart => shoppingCart.getShopping_cart_items())
+      .then(shoppingCart => {
+        if (shoppingCart) return shoppingCart.getShopping_cart_items()
+        return []
+      })
       .then(shoppingCartItems => res.json(shoppingCartItems))
       .catch(next)
   })

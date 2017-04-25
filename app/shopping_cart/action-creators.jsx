@@ -34,10 +34,10 @@ export const removeItem = itemId => ({
 
 /* THUNK DISPATCHERS */
 export const getShoppingCartItems = () => dispatch => {
-  console.log('getShoppingCartItems')
   axios.get('/api/shoppingCart/items')
     .then(response => {
       console.log('Shopping Cart Items Response:', response)
+
       // dispatch(setItems(result.data))
     })
     .catch(err => console.error('Error retrieving shopping cart', err))
