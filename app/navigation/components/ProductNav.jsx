@@ -7,7 +7,6 @@ const ProductNav = props => {
 
   return (
     <ul className="nav navbar-nav">
-      <li><Link to="#">Browse History</Link></li>
       <li className="dropdown">
         <Link
           to="#"
@@ -30,8 +29,6 @@ const ProductNav = props => {
           ))}
           <li role="separator" className="divider" />
           <li><Link to="#">Nothing here yet</Link></li>
-          <li role="separator" className="divider" />
-          <li><Link to="#">Nothing here either</Link></li>
         </ul>
       </li>
     </ul>

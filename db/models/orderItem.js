@@ -9,7 +9,7 @@ module.exports = db => db.define('orderItems', {
     allowNull: false,
   },
   price: {
-    type: DECIMAL,
+    type: DECIMAL(10, 2),
     allowNull: false,
     validate: {
       min: 0

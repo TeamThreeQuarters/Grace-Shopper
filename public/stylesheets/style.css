@@ -82,6 +82,11 @@ hr.order-seperator {
   flex: 2;
 }
 
+.product-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .product_detail {
   display: flex;
   flex-direction: row;
@@ -102,4 +107,5 @@ hr.order-seperator {
   border-width: 1px;
   border-radius: 4px;
   border-color: lightgray;
+  padding: 15px;
 }

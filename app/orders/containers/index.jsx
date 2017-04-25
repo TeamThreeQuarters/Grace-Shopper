@@ -7,6 +7,14 @@ import Orders from '../components'
 import { getUserOrders } from 'APP/app/orders/action-creators'
 
 class OrdersLocalContainer extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      rating: 0,
+      review: ''
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth !== this.props.auth) this.props.getUserOrders()
   }
@@ -27,9 +35,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getUserOrders: () => dispatch(getUserOrders())
 })
-// const mapDispatchToProps = {
-//   getUserOrders
-// }
 
 const OrdersContainer = connect(mapStateToProps, mapDispatchToProps)(OrdersLocalContainer)
 

@@ -4,7 +4,7 @@ chai.use(require('chai-enzyme')())
 import { shallow } from 'enzyme'
 // import { spy } from 'sinon'
 chai.use(require('sinon-chai'))
-import OrderItem from './components/orderItem'
+import OrderItem from './components/OrderItem'
 import sampleOrders from './sampleOrders.test.data'
 
 /* global describe it beforeEach */
@@ -39,16 +39,8 @@ describe('<OrderItem />', () => {
     expect(root.find('p[className="vendor-name"]')).to.have.length(1);
   })
 
-  it('Has a link to the product', () => {
-    expect(root.find('Link[to]')).to.have.length(1);
-  })
-
   it('Has an image of the product', () => {
     expect(root.find('img')).to.have.length(1);
     expect(root.find('img')).to.have.attr('src').equals(product.images[0]);
   })
-
-  //   it('Has a paragraph with item price', () => {
-  //     expect(root.find('hr[className="order-seperator"]')).to.have.length(1);
-  //   })
 })

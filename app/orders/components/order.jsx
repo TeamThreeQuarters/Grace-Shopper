@@ -1,14 +1,13 @@
 'use strict'
 
 import React from 'react'
-import OrderItem from './orderItem'
+import OrderItem from '../containers/OrderItem'
 
 const Order = props => {
-  const order = props.order;
+  const order = props.order
 
   return (
     <div>
-      <h2 className="id-header">Order ID: {order.id}</h2>
       <p className="creation-date">Order Submitted At: {order.created_at}</p>
       <p className="payment-status"><strong>Payment Status: {order.paidStatus ? 'Complete' : 'Not Complete'}</strong></p>
       <hr />
@@ -20,11 +19,13 @@ const Order = props => {
         return (
           <div key={orderItem.id}>
             <OrderItem
-              orderItem={orderItem} 
-              inventory={inventory} 
-              vendor={vendor} 
+              orderItem={orderItem}
+              inventory={inventory}
+              vendor={vendor}
               product={product} />
-            {index === array.length - 1 ? <hr className="order-seperator" /> : <hr />}
+            {index === array.length - 1
+              ? <hr className="order-seperator" /> 
+              : <hr />}
           </div>
         )
       })}
