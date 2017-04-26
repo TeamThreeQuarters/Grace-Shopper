@@ -47,7 +47,12 @@ module.exports = require('express').Router()
     ShoppingCart.findOne({
       where,
     })
-      .then(shoppingCart => shoppingCart.setShopping_cart_items([]))
-      .then(() => res.sendStatus(202))
+      .then(shoppingCart => ShoppingCartItem.destroy({
+        where: {
+          shopping_cart_id: shoppingCart.id
+        }
+      })
+        .then(() => res.sendStatus(202))
+        .catch(next))
       .catch(next)
   })

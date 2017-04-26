@@ -11,7 +11,7 @@ export default class ShoppingCart extends React.Component {
     axios.post('api/orders', {})
       .then(res => {
         if (res.status === 201) {
-          axios.delete('api/shoppingCart/items', {})
+          axios.delete('/api/shoppingCart/items')
             .then(res => {
               if (res.status === 202) {
                 this.setState({ message: 'Successfully checked out items. Congratulations' })
@@ -19,10 +19,12 @@ export default class ShoppingCart extends React.Component {
                 this.setState({ message: 'Could not remove items from shopping cart.' })
               }
             })
+            .catch(err => console.error('Could not delete shopping cart items', err))
         } else {
           this.setState({ message: 'There was an error checking out. Too bad.' })
         }
       })
+      .catch(err => console.error('Could not checkout', err))
   }
 
   render() {
@@ -31,7 +33,6 @@ export default class ShoppingCart extends React.Component {
     const length = Object.keys(shoppingCartItems).length
     return (
       <div className="container">
-        {/* {console.log('Stupid lint error', shoppingCartItems)} */}
         <h4>Hi, you have </h4>
         {shoppingCartItems && <h4>{length} items in your cart.</h4>}
         <button onClick={this.checkout}>Checkout</button>
