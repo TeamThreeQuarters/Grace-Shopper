@@ -12,6 +12,14 @@ const orders = seed(Order, ({ users }) => ({
   order2: {
     paidStatus: false,
     user_id: users.god.id
+  },
+  order3: {
+    paidStatus: true,
+    user_id: users.god.id
+  },
+  order4: {
+    paidStatus: true,
+    user_id: users.barack.id
   }
 }))
 

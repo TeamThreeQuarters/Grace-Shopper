@@ -18,6 +18,7 @@ import Orders from './orders/containers'
 import { getProduct, getProducts, getCategoryProducts } from './product_catalog/action-creators'
 import { getUserOrders } from './orders/action-creators'
 import { setSearchQuery } from './navigation/action-creators'
+import { getShoppingCartItems } from './shopping_cart/action-creators'
 
 /* ROUTES COMPONENT */
 const RoutesComponent = (props) => (
@@ -37,7 +38,7 @@ const RoutesComponent = (props) => (
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
       <Route path="/account" component={Account} />
-      <Route path="/cart" component={ShoppingCartContainer} />
+      <Route path="/cart" component={ShoppingCartContainer} onEnter={props.getShoppingCartItems} />
       <Route path="/orders" component={Orders} onEnter={props.getOrders} />
     </Route>
     <Route path="*" component={NotFound} />
@@ -53,6 +54,7 @@ const mapDispatchToProps = dispatch => ({
   getCategoryProducts: categoryName => dispatch(getCategoryProducts(categoryName)),
   getSearchProducts: searchQuery => dispatch(setSearchQuery(searchQuery)),
   getOrders: () => dispatch(getUserOrders()),
+  getShoppingCartItems: () => dispatch(getShoppingCartItems())
 })
 
 const Routes = connect(mapStateToProps, mapDispatchToProps)(RoutesComponent);

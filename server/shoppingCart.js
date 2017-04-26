@@ -14,9 +14,7 @@ module.exports = require('express').Router()
         if (!shoppingCart) return []
         return shoppingCart.getShopping_cart_items()
       })
-      .then(shoppingCartItems => {
-        res.json(shoppingCartItems)
-      })
+      .then(shoppingCartItems => res.json(shoppingCartItems))
       .catch(next)
   })
 
@@ -43,17 +41,18 @@ module.exports = require('express').Router()
       .catch(next)
   })
 
-    .delete('/', (req, res, next) => {
-      if (!req.user && !req.session.shoppingCartId) return res.json([])
-      const where = req.user ? { user_id: req.user.id } : { id: req.session.shoppingCartId }
-      ShoppingCart.findOne({
-        where,
-      })
-        .then(shoppingCart => {
-          return shoppingCart.setShopping_cart_items([])
-        })
-        .then(() => {
-          res.sendStatus(202)
-        })
-        .catch(next)
+  .delete('/', (req, res, next) => {
+    if (!req.user && !req.session.shoppingCartId) return res.json([])
+    const where = req.user ? { user_id: req.user.id } : { id: req.session.shoppingCartId }
+    ShoppingCart.findOne({
+      where,
     })
+      .then(shoppingCart => ShoppingCartItem.destroy({
+        where: {
+          shopping_cart_id: shoppingCart.id
+        }
+      })
+        .then(() => res.sendStatus(202))
+        .catch(next))
+      .catch(next)
+  })

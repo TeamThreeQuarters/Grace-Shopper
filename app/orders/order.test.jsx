@@ -5,7 +5,7 @@ import { shallow } from 'enzyme'
 // import { spy } from 'sinon'
 chai.use(require('sinon-chai'))
 import Order from './components/order'
-import OrderItem from './components/orderItem'
+import OrderItem from './containers/OrderItem'
 import sampleOrders from './sampleOrders.test.data'
 
 /* global describe it beforeEach */
@@ -17,10 +17,6 @@ describe('<Orders />', () => {
 
   it('Contains the correct amount of order items', () => {
     expect(root.find(OrderItem)).to.have.length(2);
-  })
-
-  it('Has a header with the id', () => {
-    expect(root.find('h2[className="id-header"]')).to.have.length(1);
   })
 
   it('Has a paragraph with the creation date', () => {
