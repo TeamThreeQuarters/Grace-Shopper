@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="300" src="/public/images/navbar_logo.png">
+  <img width="460" src="/public/images/navbar_logo.png">
 </p>
 
 
