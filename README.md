@@ -8,7 +8,7 @@
   [![Coverage Status](https://coveralls.io/repos/github/TeamThreeQuarters/Grace-Shopper/badge.svg?branch=master)](https://coveralls.io/github/TeamThreeQuarters/Grace-Shopper?branch=master) 
 
 
-An Amazon.com clone where you can buy and sell FullStack Instructors, Fellows and Students. http://threequarters.herokuapp.com/cart
+An Amazon.com clone where you can buy and sell FullStack Instructors, Fellows and Students. http://threequarters.herokuapp.com/
 
 ### Three Quarters Team
 
