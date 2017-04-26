@@ -1,4 +1,6 @@
-![Data Model](/public/images/navbar_logo.png?raw=true "Data Model")
+<p align="center">
+  <img width="460" height="300" src="/public/images/navbar_logo.png">
+</p>
 
 
 # Fullstack Marketplace
