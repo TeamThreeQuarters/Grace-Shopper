@@ -5,7 +5,6 @@ const ShoppingCart = props => {
   const checkout = props.checkout
   const message = props.message
   const cartCount = Object.keys(shoppingCartItems).length
-  console.log(shoppingCartItems);
   return (
     <div className="container shopping_cart">
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
