@@ -2,11 +2,11 @@
 
 const db = require('APP/db')
 const { Promise } = db
-const categories = require('./categories')
-const vendors = require('./vendors')
-const products = require('./products')
-const inventories = require('./inventories')
 const users = require('./users')
+const categories = require('./categories')
+const products = require('./products')
+const vendors = require('./vendors')
+const inventories = require('./inventories')
 const orders = require('./orders')
 const orderItems = require('./orderItems')
 const productReviews = require('./productReviews')
@@ -21,13 +21,12 @@ if (module === require.main) {
 
 function seedEverything() {
   const seeded = {
-    categories: categories(),
     users: users(),
+    categories: categories(),
     vendors: vendors()
   }
   seeded.products = products(seeded)
   seeded.inventories = inventories(seeded)
-  seeded.users = users(seeded)
   seeded.orders = orders(seeded)
   seeded.orderItems = orderItems(seeded)
   seeded.productReviews = productReviews(seeded)

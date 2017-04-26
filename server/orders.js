@@ -44,16 +44,15 @@ module.exports = require('express').Router()
         }
         return orderPromise
       })
-      .then(order => {
-        items.forEach(item => {
-          order.createOrderItem({
-            deliveryStatus: 'waiting',
-            price: item.inventory.price,
-            quantity: item.quantity,
-            inventory_id: item.inventory.id
-          })
+      .then(order => items.forEach(item =>
+        order.createOrderItem({
+          deliveryStatus: 'waiting',
+          price: item.inventory.price,
+          quantity: item.quantity,
+          inventory_id: item.inventory.id
         })
-        res.sendStatus(201)
-      })
+          .catch(next)
+      ))
+      .then(() => res.sendStatus(201))
       .catch(next)
   })

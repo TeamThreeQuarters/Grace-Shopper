@@ -1,4 +1,5 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
 
 const ProductDetail = props => {
   const product = props.product
@@ -20,7 +21,10 @@ const ProductDetail = props => {
                 : <span>Out of Stock</span>}
               <p>{props.product.description}</p>
               <button className="btn-primary" onClick={
-                () => props.addToShoppingCart(inventories[0].id, 1)
+                () => {
+                  props.addToShoppingCart(inventories[0].id, 1)
+                  browserHistory.push('/cart')
+                }
               }>Add to Cart</button>
             </div>
           </div>
