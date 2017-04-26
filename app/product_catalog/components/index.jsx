@@ -10,7 +10,8 @@ const ProductCatalog = props => {
   return (
     <div className="container">
       <div>
-        Products:
+        <h1><strong>Products:</strong></h1>
+        <hr />
       </div>
       <div className="products-container">
         {products && products.map((product, i) => (

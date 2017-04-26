@@ -49,7 +49,7 @@ module.exports = require('express').Router()
         name: req.params.categoryName
       }
     })
-      .then(category => category.getProducts({ include: [Inventory] }))
+      .then(category => category.getProducts({ include: [Inventory, ProductReview] }))
       .then(products => res.json(products))
       .catch(next)
   })
