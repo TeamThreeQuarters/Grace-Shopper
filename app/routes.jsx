@@ -52,7 +52,7 @@ const mapDispatchToProps = dispatch => ({
   getAllProducts: () => dispatch(getProducts()),
   getCategoryProducts: categoryName => dispatch(getCategoryProducts(categoryName)),
   getSearchProducts: searchQuery => dispatch(setSearchQuery(searchQuery)),
-  getOrders: () => dispatch(getUserOrders()),
+  getOrders: () => dispatch(getUserOrders())
 })
 
 const Routes = connect(mapStateToProps, mapDispatchToProps)(RoutesComponent);

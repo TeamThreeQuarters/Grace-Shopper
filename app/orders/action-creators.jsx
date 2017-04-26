@@ -1,7 +1,6 @@
 'use strict'
 
 import axios from 'axios'
-import store from '../store'
 
 import {
   SET_ORDERS
@@ -14,13 +13,11 @@ const setOrders = orders => ({
 })
 
 // /* THUNK DISPATCHERS */
-export const getUserOrders = () => dispatch => {
-  const auth = store.getState().auth
+export const getUserOrders = () => (dispatch, getState) => {
+  const auth = getState().auth
   if (auth) {
     axios.get(`/api/orders/${auth.id}`)
-      .then(orders => {
-        dispatch(setOrders(orders.data))
-      })
+      .then(orders => dispatch(setOrders(orders.data)))
       .catch(err => console.error('Could not get user orders', err))
   }
 }

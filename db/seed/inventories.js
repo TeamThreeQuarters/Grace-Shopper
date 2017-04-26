@@ -28,6 +28,12 @@ const inventories = seed(Inventory, ({ vendors, products }) => ({
     product_id: products.damon.id,
     quantity: 2,
     price: 22.50
+  },
+  fullStackSam: {
+    vendor_id: vendors.fullstack.id,
+    product_id: products.sam.id,
+    quantity: 99,
+    price: 0.99
   }
 }))
 

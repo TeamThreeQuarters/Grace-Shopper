@@ -1,7 +1,9 @@
 'use strict'
 
 const db = require('APP/db')
-const { Order, User, OrderItem, Inventory, Product, Vendor, ShoppingCart } = db
+
+const { Order, User, OrderItem, Inventory, Product, Vendor, ShoppingCart, ProductReview } = db
+
 const { mustBeLoggedIn } = require('./auth.filters')
 
 module.exports = require('express').Router()
@@ -15,6 +17,8 @@ module.exports = require('express').Router()
           include: [{
             model: Inventory,
             include: [Product, Vendor]
+          }, {
+            model: ProductReview
           }]
         }]
       }))
@@ -22,7 +26,7 @@ module.exports = require('express').Router()
       .catch(next))
 
   .post('/',
-  (req, res, next) => { 
+  (req, res, next) => {
     var items;
     if (!req.user && !req.session.shoppingCartId) return res.json([])
     const where = req.user ? { user_id: req.user.id } : { id: req.session.shoppingCartId }
@@ -36,7 +40,7 @@ module.exports = require('express').Router()
         if (req.user) {
           orderPromise = req.user.createOrder({ paidStatus: true })
         } else {
-          orderPromise = Order.create({ paidStatus: true })        
+          orderPromise = Order.create({ paidStatus: true })
         }
         return orderPromise
       })
@@ -50,6 +54,6 @@ module.exports = require('express').Router()
           })
         })
         res.sendStatus(201)
-      })         
+      })
       .catch(next)
   })

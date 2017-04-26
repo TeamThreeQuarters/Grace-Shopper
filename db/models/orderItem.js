@@ -9,7 +9,7 @@ module.exports = db => db.define('orderItems', {
     allowNull: false,
   },
   price: {
-    type: DECIMAL,
+    type: DECIMAL(10, 2),
     allowNull: false,
     validate: {
       min: 0
@@ -24,6 +24,7 @@ module.exports = db => db.define('orderItems', {
   },
 })
 
-module.exports.associations = (OrderItem, { Inventory }) => {
+module.exports.associations = (OrderItem, { Inventory, ProductReview }) => {
   OrderItem.belongsTo(Inventory)
+  OrderItem.hasOne(ProductReview)
 }

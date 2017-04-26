@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('APP/db')
-const { Product, Category, Inventory, Vendor } = db
+const { Product, Category, Inventory, Vendor, ProductReview } = db
 
 module.exports = require('express').Router()
   .get('/product/:id',
@@ -10,6 +10,8 @@ module.exports = require('express').Router()
       include: [{
         model: Inventory,
         include: [Vendor]
+      }, {
+        model: ProductReview
       }]
     })
       .then(product => res.json(product))
@@ -28,7 +30,7 @@ module.exports = require('express').Router()
 
     Product.findAll({
       where,
-      include: [Inventory]
+      include: [Inventory, ProductReview]
     })
       .then(products => res.json(products))
       .catch(next)
